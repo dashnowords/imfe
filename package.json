@@ -1,0 +1,19 @@
+{
+  "name": "imfe",
+  "version": "1.0.0",
+  "description": "《我是前端》示例代码仓",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dashnowords/imfe.git"
+  },
+  "author": "Dashnowords",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dashnowords/imfe/issues"
+  },
+  "homepage": "https://github.com/dashnowords/imfe#readme"
+}
