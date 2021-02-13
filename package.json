@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dashnowords/imfe/issues"
   },
-  "homepage": "https://github.com/dashnowords/imfe#readme"
+  "homepage": "https://github.com/dashnowords/imfe#readme",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
 }
