@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.Rxjs 老人与海</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+</head>
+
+<body>
+    <h3>rxjs实现ToDoList</h3>
+    <p>STEP2——回车后或点击Add键后新增【待办事项】</p>
+    <div>
+        <input id="user-input" type="text" />
+        <a id="btn-add" class="btn">Add</a>
+    </div>
+    <ul id="list" class="list"></ul>
+    <script>
+        const { filter, tap, map, flatMap, mapTo } = rxjs.operators;
+        const { merge } = rxjs;
+
+        const $input = document.querySelector("#user-input");
+        const $btn = document.querySelector("#btn-add");
+        const $list = document.querySelector("#list");
+
+        //新增待办事项
+        const addItem = (content) => {
+            let li = document.createElement("li");
+            li.classList.add("todo-item");
+            li.innerHTML = `<span>${content}</span><a class="btn btn-finish"></a>`;
+            return li;
+        };
+
+        //键盘回车键数据流
+        const inputEnter$ = rxjs.fromEvent($input, "keydown").pipe(filter(r => r.keyCode === 13));
+        //鼠标点击按钮数据流流
+        const click$ = rxjs.fromEvent($btn, "click");
+        //新增待项数据流
+        const addtodo$ = merge(inputEnter$, click$)
+            .pipe(
+                map(() => $input.value),
+                filter((r) => r !== ""),
+                map(addItem),
+                tap((li) => {
+                    const $ul = document.querySelector(".list");
+                    $ul.appendChild(li);
+                    $input.value = '';
+                })
+            );
+
+        const app$ = addtodo$;
+
+        app$.subscribe();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.Rxjs 老人与海</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+</head>
+
+<body>
+    <h3>rxjs实现ToDoList</h3>
+    <p>STEP1——回车后在控制台打印输入的结果，并清空输入框</p>
+    <div>
+        <input id="user-input" type="text" />
+        <a id="btn-add" class="btn">Add</a>
+    </div>
+    <ul id="list" class="list"></ul>
+    <script>
+        const { filter, tap, map, flatMap, mapTo } = rxjs.operators;
+        const { merge } = rxjs;
+
+        const $input = document.querySelector("#user-input");
+        const $btn = document.querySelector("#btn-add");
+        const $list = document.querySelector("#list");
+
+        // 键盘keydown事件流
+        const input$ = rxjs.fromEvent($input, "keydown").pipe(
+            filter((r) => r.keyCode === 13), //过滤回车键
+            mapTo($input), //映射
+            tap((input) => { //副作用管理
+                console.log('the item you input:', input.value);
+                input.value = '';
+                return 123
+            })
+        );
+
+        const app$ = input$;
+
+        app$.subscribe(data=>{
+            console.log('final value:',data);
+        });
+    </script>
+</body>
+
+</html>
