@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Immutable示例</title>
+    <script src="../node_modules/immutable/dist/immutable.min.js"></script>
+</head>
+<body>
+    <div>
+        演示基本的Immutable.js的数据类型，可在控制台查看生成的新对象
+    </div>
+    <script>
+        /*List类型示例*/
+        let arr = [];
+        for(let i = 0; i < 32768; i++){
+            arr.push({a:i});
+        }
+        let list = Immutable.List(arr);
+       
+        /*Map类型示例*/
+        let obj = {};
+        for(let i = 0; i < 10000; i++){
+            obj['u'+i] = i;
+        } 
+        obj['u9'] = {};
+        for(let i = 0 ; i<40 ; i++){
+            obj['u9'][`z${i}`] = i;
+        }
+        let map = Immutable.Map(obj);
+        let map2 = map.set('u8',10);
+        console.log(map);
+        console.log(map2);
+
+        /*嵌套Map类型*/
+        let obj2 = {
+            a:{
+                b:{
+                    c:{
+                        d:{
+                            e:1,
+                            f:2,
+                            g:3
+                        }
+                    }
+                }
+            }
+        }
+        let map3 = Immutable.Map(obj2);
+        let map4 = map3.setIn(['a','b','c','d','e'],4);
+        console.log(map3);
+        console.log(map4);
+    </script>
+</body>
+</html>

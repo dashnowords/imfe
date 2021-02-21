@@ -1,9 +1,10 @@
 # imfe
->:whale: 《我是前端》配套示例代码仓，下载代码仓后需要先执行`npm install`安装依赖
+>:whale: 《我是前端》配套示例代码仓，下载代码仓后需要先执行`npm install`安装依赖。
 
 
 
 #### chapter1——mock.js如何与后端潇洒分手
+
 1.`npm install`安装依赖   
 2.`npm run start`运行程序   
 3.打开浏览器，在地址栏输入`http://localhost:9527/query_orders`即可看到返回的模拟数据
@@ -19,3 +20,21 @@
 
 #### chapter5——Lodash.js 是工具，也是秘籍
 打开终端，进入目录后使用`node XXX`的方式运行。
+
+
+
+#### chapter8——Rxjs 老人与海
+
+示例为使用Rxjs实现的ToDoList应用，直接打开html文件即可查看
+
+
+
+#### chapter9——Immutable.js 不可变数据的制造艺术
+
+- `shallow_copy.html`——演示JavaScript原生方法的“浅克隆特性”
+
+- `try_immutable.html`——演示基本的Immutable.js的数据类型，可在控制台查看生成的新对象
+
+- `nest_perf_compare.html`——以Map为例，测试嵌套结构Map深层更新函数setIn的性能表现。
+
+- `array_proxy_es5_es6.js`——演示`Proxy`可响应数组方法，而`defineProperty`无法做到，使用`node`命令运行。

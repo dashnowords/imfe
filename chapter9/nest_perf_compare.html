@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Immutable嵌套结构性能测试</title>
+    <script src="../node_modules/immutable/dist/immutable.min.js"></script>
+</head>
+<body>
+    <script>
+        let start = 0;//记录开始时间
+        let plain = {};
+        for(let i = 0; i < 100000; i++){
+            plain[`prop${i}`] = i;
+        }
+
+        //普通浅克隆
+        start = performance.now();
+        
+        let copy = shallowCopy(plain);
+        copy.prop10 = 'default';
+        console.log(`shallowCopy耗时${int(performance.now() - start)}ms`);
+        
+        //immutable set
+        start = performance.now();
+        let map = Immutable.Map(plain);
+        console.log();
+        console.log('测试扁平化大对象：')
+        console.log(`构造Immutable.Map耗时${int(performance.now() - start)}ms`);
+        start = performance.now();
+        map.set('prop10',200);
+        console.log(`set操作耗时${int(performance.now() - start)}ms`);
+        
+        //将100000个量放在第二层
+        let nest = {
+            id:'nest',
+            num:100,
+            nestprop:plain
+        };
+
+        start = performance.now();
+        let nestmap = Immutable.Map(nest);
+        console.log();
+        console.log('测试带嵌套结构的大对象：')
+        console.log(`构造Immutable.Map(nest)耗时${int(performance.now() - start)}ms`);
+        start = performance.now();
+        nestmap.setIn(['nestprop','prop9000'],300);
+        console.log(`set操作耗时${int(performance.now() - start)}ms`);
+
+        //截取2位小数
+        function int(num) {
+            return num.toFixed(2);
+        }
+
+        //Immutable源码中的浅克隆函数
+        function shallowCopy(from) {
+            if (Array.isArray(from)) {
+            return arrCopy(from);
+            }
+            var to = {};
+            for (var key in from) {
+            if (hasOwnProperty.call(from, key)) {
+                to[key] = from[key];
+            }
+            }
+            return to;
+        }
+    </script>
+</body>
+</html>
