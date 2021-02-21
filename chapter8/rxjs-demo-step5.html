@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.Rxjs 老人与海</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+  <script src="http.js"></script>
+</head>
+
+<body>
+  <h3>rxjs实现ToDoList</h3>
+  <p>STEP5——函数去抖后向服务端提交</p>
+  <div>
+    <input id="user-input" type="text" />
+    <a id="btn-add" class="btn">Add</a>
+  </div>
+  <ul id="list" class="list"></ul>
+  <script>
+    const {
+      filter,
+      tap,
+      map,
+      flatMap,
+      mapTo,
+      switchMap,
+      debounceTime,
+      throttle,
+    } = rxjs.operators;
+    const { merge, from, of, Observable } = rxjs;
+
+    /** 
+     * 自定义operator，实现log日志功能
+     */
+    const log = key => source => {
+      return Observable.create((subscriber) => {
+        var subscription = source.subscribe(
+          (value) => {
+            try {
+              console.log(`【Log】${key}:${value}`)
+              subscriber.next(value);
+            } catch (err) {
+              subscriber.error(err);
+            }
+          },
+          (err) => subscriber.error(err),
+          () => subscriber.complete()
+        );
+
+        return subscription;
+      });
+    };
+
+    const $input = document.querySelector("#user-input");
+    const $btn = document.querySelector("#btn-add");
+    const $list = document.querySelector("#list");
+
+    //新增待办事项
+    const addItem = (content) => {
+      let li = document.createElement("li");
+      li.classList.add("todo-item");
+      li.innerHTML = `<span>${content}</span><a class="btn btn-finish">&Omicron;</a >`;
+      return li;
+    };
+    //字符流
+    const input$ = rxjs.fromEvent($input, "keydown");
+    //键盘回车键数据流
+    const inputEnter$ = input$.pipe(filter((r) => r.keyCode === 13));
+    //鼠标点击按钮数据流流
+    const click$ = rxjs.fromEvent($btn, "click");
+
+    //添加新的待办项
+    const addtodo$ = merge(inputEnter$, click$).pipe(
+      map(() => $input.value), //映射为目标值
+      filter((r) => r !== ""), //过滤
+      log('before debounce'),
+      debounceTime(500), //去抖
+      log('before request'),
+      switchMap((r) => from(http.post(r))), //switchMap拍平会丢弃前一个值而只保留最新值
+      //flatMap((r) => from(http.post(r))), //flatMap扁平化会保留所有值
+      map((r) => { //对比switchMap和flatMap
+        console.log('收到服务端响应:',r);
+        return r.val;
+      }),
+      map(addItem), //映射
+      tap((li) => { //副作用管理
+        const $ul = document.querySelector(".list");
+        $ul.appendChild(li);
+        $input.value = "";
+      })
+    );
+
+    //在列表标签上进行事件代理
+    const clickList$ = rxjs.fromEvent($list, "click").pipe(
+      map((e) => e.target),
+      tap((ele) => {
+        if (ele.tagName.toLowerCase() === "a") {
+          (ele.innerHTML = "🏆"),
+            ele.parentNode.classList.add("todo-item--done");
+        }
+      })
+    );
+
+    const app$ = merge(addtodo$, clickList$);
+
+    app$.subscribe();
+  </script>
+</body>
+
+</html>

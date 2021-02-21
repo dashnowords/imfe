@@ -1,0 +1,50 @@
+body {
+    padding: 20px;
+  }
+  input {
+    height: 30px;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+  .btn-finish {
+    display: inline-block;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+    margin-left: 10px;
+    background-color: transparent;
+    border-radius:50%;
+    color: #333333;
+    font-size: 24px;
+  }
+  .btn-finish:hover {
+    background-color: #1abc9c !important;
+    color: white;
+    transition: all 0.3s ease-out;
+  }
+  .btn:hover {
+    background-color: #aaaaaa;
+  }
+  .list {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+  }
+  .todo-item > span {
+    display: inline-block;
+    min-width: 120px;
+    font-size: 20px;
+  }
+  .todo-item--done {
+    color: #1abc9c;
+    font-weight: 900;
+    font-size: 20px;
+  }
