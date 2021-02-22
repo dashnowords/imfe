@@ -1,0 +1,11 @@
+digraph {
+    s[shape=box,label="开始"];
+    a1[shape=box,label="步骤1-1"];
+    a2[shape=box,label="步骤1-2"];
+    b[shape=box,label="步骤2"];
+    e[shape=box,label="结束"];
+    s->a1->a2->e;
+    s->b->e;
+    rankdir="LR";#设置布局方向为从左到右
+    splines="ortho";#设置连线类型为正交折线
+}

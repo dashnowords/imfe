@@ -41,3 +41,10 @@
 #### chapter10——Day.js 算个日期能有多难
 
 示例代码中展示了Dayjs的基本用法，可使用`node`命令运行。
+
+
+
+#### chapter11——jsplumb.js 所见即所得的流程图
+
+示例代码中展示了`viz.js`布局引擎的基本用法（网络上有非常多教程可以教你如何利用jsplumb.js绘制流程图），使用`node `命令执行`graphviz.demo.js`，它就可以将DOT定义文件转换为名为`output.svg`的拓扑图，它可以帮助你在自定义绘制后方便地实现自动布局。
+
