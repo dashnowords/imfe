@@ -18,7 +18,7 @@
 
 
 
-#### chapter5——Lodash.js 是工具，也是秘籍
+## chapter5——Lodash.js 是工具，也是秘籍
 打开终端，进入目录后使用`node XXX`的方式运行。
 
 
