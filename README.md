@@ -32,9 +32,19 @@
 #### chapter9——Immutable.js 不可变数据的制造艺术
 
 - `shallow_copy.html`——演示JavaScript原生方法的“浅克隆特性”
-
 - `try_immutable.html`——演示基本的Immutable.js的数据类型，可在控制台查看生成的新对象
-
 - `nest_perf_compare.html`——以Map为例，测试嵌套结构Map深层更新函数setIn的性能表现。
-
 - `array_proxy_es5_es6.js`——演示`Proxy`可响应数组方法，而`defineProperty`无法做到，使用`node`命令运行。
+
+
+
+#### chapter10——Day.js 算个日期能有多难
+
+示例代码中展示了Dayjs的基本用法，可使用`node`命令运行。
+
+
+
+#### chapter11——jsplumb.js 所见即所得的流程图
+
+示例代码中展示了`viz.js`布局引擎的基本用法（网络上有非常多教程可以教你如何利用jsplumb.js绘制流程图），使用`node `命令执行`graphviz.demo.js`，它就可以将DOT定义文件转换为名为`output.svg`的拓扑图，它可以帮助你在自定义绘制后方便地实现自动布局。
+
