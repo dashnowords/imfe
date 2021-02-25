@@ -53,3 +53,16 @@
 
 ## chapter12——easel.js 一个标签 一个世界
 使用`easel.js`常用API实现了简易动画，双击`index.html`可查看效果。
+
+
+
+## chapter13——Echarts.js 看见
+目录中已包含`echarts.min.js`的完整库，双击`index.html`即可打开查看使用`echarts`绘制图表的基本用例。
+
+- 示例Demo包括基本示例、响应式、图表动画的基本实现
+  - 1.基本用法示例
+  - 2.用脚本改变容器宽度尺寸
+  - 3.为图表展示增加动画
+  - 4.响应视口尺寸变化
+- `data-vis.jpg`提供了基本的图表选型参考
+- `data-visualization.png`提供了更加完整的可视化图表选型参考
