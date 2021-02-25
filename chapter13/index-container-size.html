@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Echarts Demo</title>
+    <script src="./echarts.min.js"></script>
+</head>
+
+<body>
+    <p>init方法调用时已记录容器尺寸，故修改容器尺寸后调用渲染方法时，图表仍然按原尺寸绘制。（可查看代码）</p>
+    <div id="main" style="width:400px;height:400px;"></div>
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts响应式宽度'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        //改变容器宽度
+        setTimeout(() => {
+            document.querySelector('#main').style.width = 200 + 'px';
+            myChart.setOption(option);
+        }, 500);
+
+    </script>
+</body>
+
+</html>
