@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12.snap.svg-特性4-use&g</title>
+    <style>
+        .partial {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="partial">
+        <p>g标签定义组:</p>
+        <svg width="200" height="150" style="border:1px solid #DA5961;">
+            <g id="g1" fill="#1abc9c">
+                <rect id="r1" x="10" y="10" width="100" height="50" fill="#DA5961"/>
+                <circle id="c1" cx="150" cy="35" r="20">
+            </g>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>symbol标签定义组(不渲染):</p>
+        <svg width="200" height="150" style="border:1px solid #DA5961;">
+            <symbol id="symbol1" fill="#1abc9c">
+                <rect id="r1" x="10" y="10" width="100" height="50" fill="#DA5961" />
+                <circle id="c1" cx="150" cy="35" r="20" fill="#3498DB">
+            </symbol>
+        </svg>
+    </div>
+    <br>
+    <div class="partial">
+        <p>引用g实现复用:</p>
+        <svg width="200" height="150" style="border:1px solid #DA5961;">
+            <use xlink:href="#g1"></use>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>引用symbol复用(带偏移):</p>
+        <svg width="200" height="150" style="border:1px solid #DA5961;">
+            <use x="20" y="20" xlink:href="#symbol1"></use>
+        </svg>
+    </div>
+</body>
+
+</html>

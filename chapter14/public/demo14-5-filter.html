@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>12.snap.svg-特性5 filter滤镜</title>
+  <style>
+    .partial {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .image-container{
+      height:160px;
+      width:240px;
+    }
+    #image1{
+      width:200px;
+      filter:blur(2px) drop-shadow(3px 3px);
+    }
+    #image4{
+      width:200px;
+      filter:url(#filter2);
+    }
+  </style>
+</head>
+
+<body>
+    <div class="partial">
+        <p>CSS3-filter实现模糊+阴影：</p>
+        <div class="image-container">
+            <img id="image1" src="./js.jpg" alt="">
+        </div>
+    </div>
+    <div class="partial">
+        <p>SVG滤镜实现模糊：</p>
+        <svg id="s2" width="240" height="160">
+            <defs>
+                <filter id="filter1">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                </filter>
+              </defs>
+            <image id="image2" xlink:href="./js.jpg" width="200" filter="url(#filter1)"></image>
+        </svg>
+    </div>
+    <br>
+    <div class="partial">
+        <p>SVG叠加滤镜实现模糊+阴影：</p>
+        <svg id="s3" width="240" height="160">
+            <defs>
+                <filter id="filter2">
+                  <feGaussianBlur in="SourceGraphic" result="blurOut" stdDeviation="2" />
+                  <feOffset in="SourceAlpha" result="offOut"  dx="5" dy="5" />
+                  <feGaussianBlur in="offOut" result="offBlurOut" stdDeviation="2" />
+                  <feBlend in="blurOut" in2="offBlurOut" mode="normal" />
+                </filter>
+              </defs>
+            <image id="image3" xlink:href="./js.jpg" width="200" filter="url(#filter2)"></image>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>filter属性关联SVG滤镜：</p>
+        <div class="image-container">
+            <img id="image4" src="./js.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

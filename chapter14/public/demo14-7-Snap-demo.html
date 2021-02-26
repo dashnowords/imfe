@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snap Demo</title>
+    <script src="./snap.svg-min.js"></script>
+</head>
+
+<body>
+    <p>Snap.svg实现右侧鼠标跟随，点击右侧图案后启动货物平移动画</p>
+    <img src="./machine.svg"  alt="">
+    <script>
+        let svg;
+
+        //ajax请求加载svg资源
+        Snap.load('./machine.svg',function (data) {
+            svg = new Snap(300,300);
+            svg.append(data);
+
+            //绑定点击动画事件监听
+            svg.click(function (event) {
+                console.log('点击了SVG，动画开始');
+                startAnimate();
+            })
+            
+            //获取悬臂的引用计算旋转时的固定点
+            let joint = svg.select('#joint3');
+            let {cx,cy} = joint.getBBox();
+            
+            //可旋转的路径
+            let turning = svg.selectAll('.active');
+
+            //全局监听鼠标移动事件
+            document.addEventListener('mousemove',function (event) {
+                //计算旋转角
+                let angle = Snap.angle(event.clientX,event.clientY,cx ,cy) - 60;
+
+                //扭转悬臂末端
+                turning.attr({
+                    transform:Snap.matrix().rotate(angle,cx,cy)
+                });
+            });
+        });
+
+        //动画函数
+        function startAnimate() {
+            let cargo1 = svg.selectAll('.cargo1');
+            let cargo2 = svg.selectAll('.cargo2');
+
+            //货物组平移
+            Snap.animate(0,120,function(val){
+                let cargo1x = val < 50 ? -2*val : 240 - 2*val;
+                let cargo2x = val < 100 ? -2*val : 240 - 2*val;
+
+                //货物1变化
+                cargo1.attr({
+                    transform:Snap.matrix().translate(cargo1x,0)
+                });
+
+                //货物2变化
+                cargo2.attr({
+                    transform:Snap.matrix().translate(cargo2x,0)
+                });
+            },
+            5000,
+            mina.linear,
+            startAnimate)
+        }
+
+    </script>
+</body>
+
+</html>

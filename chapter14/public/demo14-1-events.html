@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12.snap.svg-特性1 事件交互</title>
+    <style>
+       .partial{
+           display:inline-block;
+           vertical-align: middle;
+       }
+    </style>
+</head>
+
+<body>
+    <!-- 事件交互 -->
+    <div class="partial">
+        <p>SVG特性1：事件交互（打开控制台查看）</p>
+        <svg id="s1" width="200" height="150" style="border:1px solid #DA5961;">
+            <rect id="r1" x="10" y="10" width="100" height="50" fill="#DA5961" />
+            <circle id="c1" cx="150" cy="35" r="20" fill="#3498DB">
+        </svg>
+    </div>
+    <script>
+        //1.svg特性1 事件监听
+        const r1 = document.getElementById('r1');
+        const c1 = document.getElementById('c1');
+        console.log('rect标签的DOM对象是:', r1);
+        console.log('circle标签的DOM对象是:', c1);
+
+        //添加交互事件
+        r1.addEventListener('click', function (event) {
+            console.log('点击了rect标签');
+        })
+        c1.addEventListener('click', function (event) {
+            console.log('点击了circle标签');
+        })
+    </script>
+</body>
+
+</html>
