@@ -71,6 +71,8 @@
 
 ## chapter14——Snap.svg 变形记
 
+![svg动画示例](https://github.com/dashnowords/imfe/blob/main/assets/ch14-animation.gif)
+
 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
 
 - svg元素特性-添加事件监听
