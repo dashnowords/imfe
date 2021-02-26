@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>12.snap.svg-特性6 animation动画</title>
+  <style>
+    .partial {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .image-container{
+      height:160px;
+      width:240px;
+    }
+    #image1{
+      width:200px;
+      filter:blur(2px) drop-shadow(3px 3px);
+    }
+    #image4{
+      width:200px;
+      filter:url(#filter2);
+    }
+    #movingcircle2{
+      offset-path:path("M20 10 Q140 40 180 20 T220 30");
+      animation:movingcircle 1s linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes movingcircle{
+      from{
+        offset-distance:0%;
+      }
+      to{
+        offset-distance: 100%;
+      }
+    }
+
+    #path-motion6{
+       animation:movingdash 1s linear;
+       animation-iteration-count: infinite;
+    }
+    @keyframes movingdash{
+      from{
+        stroke-dashoffset:0;
+      }
+      to{
+        stroke-dashoffset: 20;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <div class="partial">
+        <p>1.SMIL动画：</p>
+        <svg width="300" height="150">
+            <circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" />
+            <rect id="blue-rectangle" width="50" height="50" x="25" y="70" fill="#0099cc"></rect>
+              <animate 
+                xlink:href="#orange-circle"
+                attributeName="cx"
+                from="50"
+                to="300" 
+                dur="3s"
+                begin="click"
+                fill="freeze" 
+                id="circ-anim" />
+              <animate 
+                xlink:href="#blue-rectangle"
+                attributeName="x" 
+                from="50"
+                to="250" 
+                dur="4s"
+                begin="circ-anim.begin + 1s"
+                fill="freeze" 
+                id="rect-anim" />
+        </svg>
+    </div>
+    <div class="partial">
+        <p>2.路径变形动画：</p>
+        <svg viewbox="0 0 100 100">
+            <path fill="#1EB287">
+              <animate 
+                       attributeName="d" 
+                       dur="3000ms" 
+                       repeatCount="indefinite"
+                       values="M 0,0 
+                               C 50,0 50,0 100,0
+                               100,50 100,50 100,100
+                               50,100 50,100 0,100
+                               0,50 0,50 0,0
+                               Z;
+          
+                               M 25,50 
+                               C 37.5,25 37.5,25 50,0 
+                               75,50 75,50 100,100
+                               50,100 50,100 0,100
+                               12.5,75 12.5,75 25,50
+                               Z;"/>
+            </path>
+          </svg>
+    </div>
+    <br>
+    <div class="partial">
+        <p>3.轨迹动画：</p>
+        <svg width="300" height="150">
+              <circle id="movingcircle" r="5" fill="#1ABC9C" />
+              <!--使用animateMotion-->
+              <animateMotion 
+              xlink:href="#movingcircle"
+              dur="2s"
+              begin="0s"
+              repeatCount="indefinite"
+              fill="freeze"
+              path="M20 10 Q140 40 180 20 T220 30" />
+              <path 
+              d="M20 10 Q140 40 180 20 T220 30" 
+              stroke="#DA5961" 
+              fill="none"
+              stroke-width="2"></path>
+          </svg>
+    </div>
+    <div class="partial">
+      <p>4.CSS offset-path轨迹动画：</p>
+      <svg width="300" height="150">
+            <circle id="movingcircle2" r="5" fill="#1ABC9C" />
+            <path 
+              d="M20 10 Q140 40 180 20 T220 30" 
+              stroke="#DA5961" 
+              fill="none"
+              stroke-width="2"></path>
+      </svg>
+  </div>
+  <br>
+  <div class="partial">
+      <p>5.SVG线条动画：</p>
+      <svg width="300" height="150">
+            <path 
+              d="M20 10 Q140 40 180 20 T220 30"
+              stroke-dashoffset="15" 
+              stroke="#DA5961" 
+              fill="none"
+              stroke-width="2">
+              <animate 
+                       attributeName="stroke-dasharray" 
+                       dur="3000ms" 
+                       repeatCount="indefinite"
+                       values="0 240;240 0"/>
+            </path>
+      </svg>
+  </div>
+  <div class="partial">
+      <p>6.SVG线条动画：</p>
+      <svg width="300" height="150">
+            <path 
+              id="path-motion6"
+              d="M20 10 Q140 40 180 20 T220 30"
+              stroke-dasharray="10"
+              stroke="#DA5961" 
+              fill="none"
+              stroke-width="2">
+            </path>
+      </svg>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12.snap.svg-特性3-clipPath&mask</title>
+    <style>
+        .partial {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 视口聚焦 -->
+    <div class="partial">
+        <p>原始图像：</p>
+        <svg id="s1" width="200" height="150" style="border:1px solid #DA5961;">
+            <image xlink:href="./js.jpg" width="200"></image>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>添加剪裁路径</p>
+        <svg id="s2" width="200" height="150" style="border:1px solid #DA5961;">
+            <defs>
+                <clipPath id="clipPath1">
+                    <circle cx="100" cy="60" r="50" />
+                </clipPath>
+            </defs>
+            <image xlink:href="./js.jpg" width="200" clip-path="url(#clipPath1)"></image>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>添加蒙版：</p>
+        <svg id="s3" width="200" height="150" style="border:1px solid #DA5961;">
+            <defs>
+                <lineargradient id="gradient1">
+                    <stop offset="0" style="stop-color:#000000" />
+                    <stop offset="1" style="stop-color:#ffffff" />
+                </lineargradient>
+                <mask id="mask1">
+                    <rect x="0" y="0" width="200" height="150" fill="url(#gradient1)"></rect>
+                </mask>
+            </defs>
+            <image xlink:href="./js.jpg" width="200" mask="url(#mask1)"></image>
+        </svg>
+    </div>
+    <div class="partial">
+        <p>复杂路径剪裁：</p>
+        <svg id="s4" width="200" height="150" style="border:1px solid #DA5961;">
+            <defs>
+                <clipPath id="clipPath2">
+                    <path d="M0 0 L200 100 L200 0 L0 100 L0 0 Z" />
+                </clipPath>
+            </defs>
+            <image xlink:href="./js.jpg" width="200" clip-path="url(#clipPath2)"></image>
+        </svg>
+    </div>
+</body>
+
+</html>

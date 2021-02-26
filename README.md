@@ -1,4 +1,4 @@
-# imfe
+# 《我是前端》示例代码
 >:whale: 《我是前端》配套示例代码仓，下载代码仓后需要先执行`npm install`安装依赖。
 
 
@@ -66,3 +66,18 @@
   - 4.响应视口尺寸变化
 - `data-vis.jpg`提供了基本的图表选型参考
 - `data-visualization.png`提供了更加完整的可视化图表选型参考
+
+
+
+## chapter14——Snap.svg 变形记
+
+进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+
+- svg元素特性-添加事件监听
+- svg元素特性-添加viewBox视口
+- svg元素特性-剪裁路径&蒙层
+- svg元素特性-元素复用
+- svg元素特性-多种方式实现滤镜效果
+- svg元素特性-变形动画的实现
+- Snap.svg使用示例
+

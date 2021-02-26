@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14.svg特性2 视口聚焦</title>
+    <style>
+       .partial{
+           display:inline-block;
+           vertical-align: middle;
+       }
+    </style>
+</head>
+
+<body>
+    <p>SVG特性2：viewBox视口</p>
+    <!-- 视口聚焦 -->
+    <div class="partial">
+        <p>原始尺寸：</p>
+        <svg id="s1" width="200" height="150" style="border:1px solid #DA5961;">
+            <rect id="r1" x="0" y="0" width="100" height="50" fill="#DA5961" />
+        </svg>
+    </div>
+    <div class="partial">
+        <p>视口聚焦-放大</p>
+        <svg id="s1" width="200" height="150" viewBox="0,0,100,75" style="border:1px solid #DA5961;">
+            <rect id="r1" x="0" y="0" width="100" height="50" fill="#DA5961" />
+        </svg>
+    </div>
+    <div class="partial">
+        <p>视口聚焦-缩小</p>
+        <svg id="s1" width="200" height="150" viewBox="0,0,400,300" style="border:1px solid #DA5961;">
+            <rect id="r1" x="0" y="0" width="100" height="50" fill="#DA5961" />
+        </svg>
+    </div>
+</body>
+
+</html>
