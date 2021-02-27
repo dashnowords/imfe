@@ -83,3 +83,33 @@
 - svg元素特性-变形动画的实现
 - Snap.svg使用示例
 
+
+
+## chapter15——Three.js 第三个维度
+
+![3D模型示例](https://github.com/dashnowords/imfe/blob/main/assets/ch15-main.png)
+
+进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+
+- `plane`-平面渐离
+  
+  - `plane-perspectiveCamera`-使用透视相机观察动画
+  - `plane-orthographicCamera`-使用正交相机观察动画
+  - `plane-perspectiveCamera-withFog`-使用透视相机观察有雾场景
+  
+- `plane-orthographicCamera-withFog`-使用正交相机模拟有雾场景
+
+- `textGeometry`-字体模型
+  - `textGeometry-shape`-先生成带孔平面模型，再拉伸为凹浮雕模型
+  - `textGeometry-loader`-从外部加载`gltf`格式的模型
+  - `textGeometry-bsp`-演示**ThreeCSG.js**进行求差集操作【！！不推荐再使用此方式】
+
+- `texture`-纹理贴图
+  - `texture-wrong-order`- 纹理素材顶点顺序错误效果对比
+  - `texture-partial-face`- 为选定的局部表面贴图
+  
+- 实战
+  - [用Three.js制作简易的MARVEL片头动画（上）](https://www.cnblogs.com/dashnowords/p/11216540.html)
+
+  - [用Three.js制作简易的MARVEL片头动画（下）](https://www.cnblogs.com/dashnowords/p/11234360.html)
+
