@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3.FPS测试-animation属性动画</title>
+    <style>
+        h3{
+            margin-left:200px;
+        }
+        #a,
+        #b {
+            margin-left:200px;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            color: white;
+            padding: 20px;
+        }
+
+        #a {
+            background-color: #DA5961;
+            left: 50px;
+            top: 80px;
+            z-index: 2;
+            animation: move 2s linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        #b {
+            background-color: #3498db;
+            z-index: 1;
+        }
+
+        @keyframes move {
+            from {
+                transform:translateX(50px);
+            }
+
+            to {
+                transform:translateX(80px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>3.FPS测试-animation属性动画</h3>
+    <div id="a" class="box">A</div>
+    <div id="b" class="box">B</div>
+</body>
+
+</html>

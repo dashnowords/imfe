@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用shape生成带孔拉伸体</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #btn {
+            cursor: pointer;
+            background-color: #353535;
+            padding: 50px 100px;
+            color: white;
+            position: absolute;
+            left: 46%;
+            top: 40%;
+            font-size: 32px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        video {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/OrbitControls.js"></script>
+    <script src="../libs/init.js"></script>
+    <script>
+
+        startAll();
+
+        function startAll() {
+            //初始化场景
+            /******start of init.js******/
+            initScene();
+            initRender();
+            initCamera();//透视相机
+            camera.position.set(100,0,200);
+            initLight(AMBIENT_LIGHT);
+            initControls();//初始化控制器，调试用
+            /******end of init.js******/
+            initFontModel();
+        }
+
+
+        //字体模型
+        function initFontModel() {
+
+            var loader = new THREE.FontLoader();
+            //加载字体
+            loader.load("../assets/font/helvetiker_bold.typeface.json", function (font) {
+
+                //生成字体
+                textGeometry = new THREE.ExtrudeGeometry(calcShape(font), {
+                    depth:5,
+                    bevelEnabled: false,
+                    curveSegments: 4
+                });
+
+                shapeGeometry = new THREE.ShapeGeometry(calcShape(font));
+
+                let material = new THREE.MeshLambertMaterial({ color: 0x666666 });
+
+                //object
+                cube = new THREE.Mesh(textGeometry, material);
+                cube.position.set(-20,0,0);
+                //shape
+                shape = new THREE.Mesh(shapeGeometry, material);
+                shape.position.set(50,0,-10);
+                //wireframe
+                wireframe = new THREE.Mesh(shapeGeometry,  new THREE.MeshLambertMaterial({ color: 0x666666,wireframe:true }));
+                wireframe.position.set(-120,0,-20);
+
+                //立体模型
+                scene.add(cube);
+                //平面模型
+                scene.add(shape);
+                scene.add(wireframe);
+
+                //开始渲染
+                render();
+            });
+        }
+
+        /*在平面上生成镂空字体*/
+        function calcShape(font) {
+            fontShape = font.generateShapes('MIN',20);
+            boxShape = new THREE.Shape();
+            boxShape.moveTo(-10,-10);
+            boxShape.lineTo(55,-10);
+            boxShape.lineTo(55,35);
+            boxShape.lineTo(-10,35);
+            boxShape.lineTo(-10,-10);
+            boxShape.holes = fontShape //.push(fontShape[0]);
+            return boxShape;
+        }
+
+    </script>
+</body>
+
+</html>

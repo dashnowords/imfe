@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.CSS联动动画的场景</title>
+    <style>
+        .box{
+            height:100px;
+            width:100px;
+            border:1px solid #353535;
+            border-radius:4px;
+            display:inline-block;
+        }
+        .a:hover .b{
+            background-color:#3498db;
+        }
+        .a:hover ~.b2{
+            background-color:#3498db;
+        }
+
+    </style>
+</head>
+
+<body>
+   <h3>关联动画的场景</h3>
+   <div class="box a">a</div>
+   <div class="box b">.a:hover .b</div>
+   <div class="box b2">.a:hover ~.b</div>
+</body>
+
+</html>

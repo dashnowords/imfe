@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velocity.js-stagger动画示例</title>
+    <style>
+      ul {
+        position: relative;
+      }
+
+      li {
+        width: 200px;
+        margin-bottom: 8px;
+        background-color: #3498db;
+        color: white;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn {
+        margin: 40px 40px 20px 40px;
+      }
+      .info {
+        margin: 0 0 20px 40px;
+      }
+      .content {
+        height: 300px;
+      }
+    </style>
+    <script src="./vue.js"></script>
+    <script src="./velocity.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="pg-test-wrapper">
+        <button @click.stop="showpage=!showpage" class="btn">
+          使用transition-group组件的JS形式实现stagger动画
+        </button>
+        <transition-group
+          class="content"
+          tag="ul"
+          name="fade-list"
+          :css="false"
+          @before-enter="beforeEnter"
+          @enter="enter"
+        >
+          <li
+            v-for="(item, index) in list"
+            :key="item.code"
+            v-if="showpage"
+            :data-delay="index * 150"
+          >
+            {{item.text}}
+          </li>
+        </transition-group>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            showpage: true,
+            list: [
+              { code: 0, text: "第一个" },
+              { code: 1, text: "第二个" },
+              { code: 2, text: "第三个" },
+              { code: 3, text: "第四个" },
+              { code: 4, text: "第五个" },
+              { code: 5, text: "第六个" },
+            ],
+          };
+        },
+        mounted() {
+          this.showpage1 = true;
+        },
+        methods: {
+          beforeEnter(el) {
+            el.style.opacity = 0;
+          },
+          enter(el, done) {
+            let delay = el.dataset.delay;
+            setTimeout(() => {
+              el.velocity(
+                {
+                  opacity: 1,
+                  transform: ["translateY(0)", "translateY(20px)"],
+                },
+                {
+                  delay: delay,
+                  duration: 400,
+                  complete: done,
+                }
+              );
+            });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

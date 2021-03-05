@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js-stagger动画示例</title>
+  <style>
+    ul {
+      margin-left: 100px;
+    }
+
+    li {
+      list-style: none;
+      width: 200px;
+      padding: 4px;
+      text-align: center;
+      border: 1px solid #3498db;
+      color: white;
+      background-color: #3498db;
+      margin-bottom: 4px;
+      border-radius: 8px;
+    }
+  </style>
+  <script src="./vue.js"></script>
+  <script src="./velocity.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>vue指令 + Velocity.js实现stagger动画渐入效果
+    </p>
+    <button @click="handleClickBtn">{{text}}</button>
+    <ul v-if="text==='Leave'">
+      <li v-fade-in-out="index" v-for="(item, index) in lists">{{item}}</li>
+    </ul> 
+  </div>
+  <script>
+    //添加自定义指令
+    Vue.directive('fadeInOut', {
+      //元素插入到父节点时
+      inserted: function (el, binding) {
+        el.style.opacity = 0;
+        el.velocity({
+          opacity: [1, 0],
+          transform: ['translateY(0)', 'translateY(-20px)'],
+        }, {
+          duration: 400,
+          delay: (+binding.value) * 100
+        });
+      },
+      //卸载时
+      unbind: function (el, binding) {       
+        el.velocity({
+          opacity: [0, 1],
+          transform: ['translateY(20px)', 'translateY(0)'],
+        }, {
+          duration: 400,
+          delay: (+binding.value) * 100
+        });
+      }
+    });
+
+    //实例化vue
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          text: 'Enter',
+          show: false,
+          lists: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        }
+      },
+      methods: {
+        handleClickBtn() {
+          this.text = this.text === 'Enter' ? 'Leave' : 'Enter';
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正交相机观察平面渐离效果(雾化)</title>
+</head>
+
+<body>
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/OrbitControls.js"></script>
+    <script src="../libs/init.js"></script>
+    <script>
+        startAll();
+
+        //整体初始化
+        function startAll() {
+            step = 0;
+            initScene(); //初始化场景舞台
+            scene.background = 0x000000;
+            initRender(); //初始化渲染器
+            initOrthCamera(); //初始化正交相机
+            initLight(); //初始化灯光
+            initControls(); //初始化控制器，调试用
+            initPlanes();//初始化平面图片
+            renderAnim();//开启循环渲染;
+        }
+
+        //初始化加载图片并生成模型
+        function initPlanes() {
+            imgs = [{
+                id: 0,
+                path: '../assets/1.png',
+                width:300,
+                height:300,
+                pos:{x:-150, y:0, z:50},
+                initZ:-10,//正交相机视域立方体z方向为1-1000，故z=-1处不会参与投影
+                scale:6
+            },{
+                id: 1,
+                path: '../assets/2.png',
+                width:214,
+                height:300,
+                pos:{x:-450, y:0, z:80},
+                initZ:-10,
+                scale:7
+            },{
+                id: 2,
+                path: '../assets/3.png',
+                width:231,
+                height:300,
+                pos:{x:300, y:0, z:30},
+                initZ:-10,
+                scale:8
+            },{
+                id: 3,
+                path: '../assets/4.png',
+                width:238,
+                height:300,
+                pos:{x:50, y:0, z:20},
+                initZ:10,
+                scale:6
+            }];
+
+            planes = imgs.map(img=>{
+                var texture = new THREE.TextureLoader().load(img.path);
+                var material = new THREE.MeshBasicMaterial( { map: texture } );
+                material.transparent = true;
+                var geometry = new THREE.PlaneGeometry(img.width / 2, img.height / 2);
+                var plane = new THREE.Mesh(geometry, material);
+                //将面放于初始位置，不展示的画面放在z=-1位置
+                plane.position.set(img.pos.x,img.pos.y,img.initZ);
+                //缩放图像
+                plane.geometry.scale(img.scale, img.scale, 1);
+                scene.add(plane);
+                img.plane = plane;
+                return img;
+            })
+        }
+
+        //重复渲染
+        function renderAnim() {
+            step++;
+
+            //第一张图过一段时间再开始
+            if (step > 200) {
+                imgs[0].plane.position.z = imgs[0].pos.z;
+                imgs[0].plane.geometry.scale(0.985, 0.985, 1);
+                imgs[0].plane.material.opacity -= 0.005;
+            }
+            
+            if (step > 300) {
+                imgs[1].plane.position.z = imgs[1].pos.z;
+                imgs[1].plane.geometry.scale(0.995, 0.995, 1);
+                imgs[1].plane.material.opacity -= 0.002;
+            }
+
+            if (step > 350) {
+                imgs[2].plane.position.z = imgs[2].pos.z;
+                imgs[2].plane.geometry.scale(0.99, 0.99, 1);
+                imgs[2].plane.material.opacity -= 0.002;
+            }
+
+            imgs[3].plane.geometry.scale(0.995, 0.995, 1);
+            imgs[3].plane.material.opacity -= 0.002;
+            renderer.render( scene, camera );
+            requestAnimationFrame( renderAnim ); 
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velocity.js-stagger动画示例</title>
+    <style>
+      ul {
+        position: relative;
+      }
+
+      li {
+        width: 200px;
+        margin-bottom: 8px;
+        background-color: #3498db;
+        color: white;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn {
+        margin: 40px 40px 20px 40px;
+      }
+      .info {
+        margin: 0 0 20px 40px;
+      }
+
+      .fade-list-enter-active {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      /* enter-to其实可以不用写, 没有显性写明，就是默认的opacity: 1;transform: none;  */
+      .fade-list-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.3s;
+      }
+      .list-enter-active {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      /* enter-to其实可以不用写, 没有显性写明，就是默认的opacity: 1;transform: none;  */
+      .list-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.3s;
+      }
+
+      .list-enter-active:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .list-enter-active:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .list-enter-active:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .list-enter-active:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .list-enter-active:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .list-enter-active:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+    </style>
+    <script src="./vue.js"></script>
+    <script src="./velocity.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="pg-test-wrapper">
+        <button
+          @click.stop="showpage1=!showpage1; showpage2 = !showpage2"
+          class="btn"
+        >
+          切换CSS渲染/JS渲染
+        </button>
+        <p class="info">当前动画方式为:{{showpage1 ? 'CSS' : 'JS'}}渲染</p>
+
+        <transition-group class="content" tag="ul" name="list">
+          <li
+            v-for="(item, index) in list"
+            :key="item.code"
+            v-if="showpage1"
+            :data-delay="index * 150"
+          >
+            {{item.code}}
+          </li>
+        </transition-group>
+
+        <transition-group
+          class="content"
+          tag="ul"
+          name="fade-list"
+          :css="false"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+        >
+          <li
+            v-for="(item, index) in list"
+            :key="item.code"
+            v-if="showpage2"
+            :data-delay="index * 150"
+          >
+            {{item.text}}
+          </li>
+        </transition-group>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            showpage1: false,
+            showpage2: false,
+            list: [
+              { code: 0, text: "第一个" },
+              { code: 1, text: "第二个" },
+              { code: 2, text: "第三个" },
+              { code: 3, text: "第四个" },
+              { code: 4, text: "第五个" },
+              { code: 5, text: "第六个" },
+            ],
+          };
+        },
+        mounted() {
+          this.showpage1 = true;
+        },
+        methods: {
+          beforeEnter(dom) {
+            dom.classList.add("fade-list-enter-active");
+          },
+          enter(dom, done) {
+            let delay = dom.dataset.delay;
+            setTimeout(() => {
+              dom.classList.remove("fade-list-enter-active");
+              dom.classList.add("fade-list-enter-to");
+              let transitionend = window.ontransitionend
+                ? "transitionend"
+                : "webkitTransitionEnd";
+              dom.addEventListener(transitionend, function onEnd() {
+                dom.removeEventListener(transitionend, onEnd);
+                done(); //调用done() 告诉vue动画已完成，以触发 afterEnter 钩子
+              });
+            }, delay);
+          },
+          afterEnter(dom) {
+            dom.classList.remove("fade-list-enter-to");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 20px 0 0 200px;
+  background:url('../assets/bg.jpg');
+  background-size: cover;
+  overflow:hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+a{
+  color:rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition:all 0.3s ease-out;
+}
+li:hover{
+  transition:all 0.2s ease-out;
+  font-weight:bold;
+  transform:translateX(10px);
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color:rgba(255,255,255,0.8);
+}
+.title{
+  color:white;
+  font-weight:bold;
+  transform:translateX(-20px);
+}

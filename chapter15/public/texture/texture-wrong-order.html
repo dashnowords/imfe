@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>纹理素材的不同索引次序对贴图的影响</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #btn {
+            cursor: pointer;
+            background-color: #353535;
+            padding: 50px 100px;
+            color: white;
+            position: absolute;
+            left: 46%;
+            top: 40%;
+            font-size: 32px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        video {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position:absolute;width:400px;font-size:16px; margin-top:30px;margin-left:20px;">
+        上左为贴图素材图，上右为正确的顶点对应顺序，
+        下方两张图均为纹理素材顶点顺序传错时的表现，从猫爪的红色可以隐约看出索引为1的点在每种情况下都在其中一个顶点附近。
+    </div>
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/OrbitControls.js"></script>
+    <script src="../libs/init.js"></script>
+    <script>
+
+        startAll();
+
+        function startAll() {
+            initScene();
+            scene.position.y = 30;
+            initRender();
+            initCamera();//透视相机
+            camera.position.set(0,0,200);
+            initLight(AMBIENT_LIGHT);
+            initControls();//初始化控制器，调试用
+            initTriangleModel();
+        }
+
+
+        //初始化三角面模型
+        function initTriangleModel(){
+            //加载纹理
+            var texture = new THREE.TextureLoader().load( '../../assets/cat.jpg' );
+
+            //使用纹理生成材料
+            var material = new THREE.MeshBasicMaterial( { map: texture } );
+
+            //贴图素材上关键点的坐标
+            var keyPoints = [];
+                keyPoints[1] = new THREE.Vector2(0.0, 0.7);
+                keyPoints[5] = new THREE.Vector2(1.0, 0.2);
+                keyPoints[6] = new THREE.Vector2(1.0, 0.7);
+
+            //完整素材
+            var planeGeometry = new THREE.PlaneGeometry(50,40);
+            var plane = new THREE.Mesh(planeGeometry, material);
+            plane.position.x = -50;
+            scene.add(plane);
+
+            //实例化第一个几何体
+            var geometry = new THREE.Geometry();
+
+            geometry.vertices.push(
+                new THREE.Vector3(  0,  20, 0 ),
+                new THREE.Vector3( 50, 0, 0 ),
+                new THREE.Vector3( 50, 20, 0 )
+            );
+
+            //按顶点逆时针生成面
+            geometry.faces.push( new THREE.Face3( 0, 1, 2 ) );
+            //按1,5,6传入顶点坐标
+            geometry.faceVertexUvs[0].push([keyPoints[1],keyPoints[5],keyPoints[6]]);
+
+            var cube = new THREE.Mesh(geometry, material);
+            cube.position.y = -12;
+
+            scene.add(cube);
+
+            //克隆实体
+            var geometry2 = geometry.clone();
+                cube = new THREE.Mesh(geometry2, material);
+                cube.position.set(-74,-62,0);
+                //将纹理素材三角形顶点传入顺序修改为5,6,1;
+                cube.geometry.faceVertexUvs[0] = [[keyPoints[5],keyPoints[6],keyPoints[1]]]; 
+            scene.add(cube);
+
+             //克隆实体
+             var geometry3 = geometry.clone();
+                cube = new THREE.Mesh(geometry3, material);
+                cube.position.set(0,-62,0);
+                //将纹理素材三角形顶点传入顺序修改为6,1,5;
+                cube.geometry.faceVertexUvs[0] = [[keyPoints[6],keyPoints[1],keyPoints[5]]]; 
+            scene.add(cube);
+
+            //开始渲染;
+            render();
+
+        }
+    </script>
+</body>
+
+</html>

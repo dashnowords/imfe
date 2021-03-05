@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>透视相机观察平面渐离效果(雾化效果)</title>
+</head>
+
+<body>
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/OrbitControls.js"></script>
+    <script src="../libs/init.js"></script>
+    <script>
+        startAll();
+
+        //整体初始化
+        function startAll() {
+            initScene(); //初始化场景舞台
+            scene.background = 0xaaaaaa;
+            initRender(); //初始化渲染器
+            initCamera(); //初始化透视相机
+            camera.position.set(-50, 0, 10);
+            initLight(); //初始化灯光
+            initControls(); //初始化控制器，调试用
+            controls.target = new THREE.Vector3(-50, 0, 0);
+            initPlanes(); //初始化平面图片
+            initFog(); //初始化雾效果
+            renderAnim(); //开启循环渲染;
+        }
+
+        //初始化加载图片并生成模型
+        function initPlanes() {
+            const imgs = [{
+                id: 0,
+                path: '../assets/1.png',
+                width: 300,
+                height: 300,
+                pos: {
+                    x: -50,
+                    y: 0,
+                    z: 500
+                }
+            }, {
+                id: 1,
+                path: '../assets/2.png',
+                width: 214,
+                height: 300,
+                pos: {
+                    x: 50,
+                    y: 0,
+                    z: 900
+                }
+            }, {
+                id: 2,
+                path: '../assets/3.png',
+                width: 231,
+                height: 300,
+                pos: {
+                    x: -300,
+                    y: 0,
+                    z: 200
+                }
+            }, {
+                id: 3,
+                path: '../assets/4.png',
+                width: 238,
+                height: 300,
+                pos: {
+                    x: 50,
+                    y: 0,
+                    z: 0
+                }
+            }];
+
+            imgs.map(img => {
+                var texture = new THREE.TextureLoader().load(img.path);
+                var material = new THREE.MeshBasicMaterial({
+                    map: texture
+                });
+                var geometry = new THREE.PlaneGeometry(img.width / 2, img.height / 2);
+                var plane = new THREE.Mesh(geometry, material);
+                plane.position.set(img.pos.x, img.pos.y, img.pos.z);
+                scene.add(plane);
+            })
+        }
+
+        //重复渲染
+        function renderAnim() {
+            camera.position.z += 2;
+            camera.updateProjectionMatrix();
+            controls.update();
+            renderer.render(scene, camera);
+            requestAnimationFrame(renderAnim);
+        }
+
+        //初始化雾效果
+        function initFog() {
+            fog = new THREE.Fog(0x000000, 100, 800);
+            scene.fog = fog;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./velocity.js"></script>
+    <title>3.velocity.js修改left动画</title>
+    <style>
+        h3{
+            margin-left:200px;
+        }
+        #a,
+        #b {
+            margin-left:200px;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            color: white;
+            padding: 20px;
+        }
+
+        #a {
+            background-color: #DA5961;
+            left: 50px;
+            top: 80px;
+            z-index: 2;
+        }
+
+        #b {
+            background-color: #3498db;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>FPS测试-velocity修改left实现动画</h3>
+    <div id="a" class="box">A</div>
+    <div id="b" class="box">B</div>
+    <script src="velocity.min.js"></script>
+    <script>
+       let a = document.querySelector('#a');
+       a.velocity({
+           left:80
+       },{
+           duration:2000,
+           easing:'linear',
+           loop:true
+       });
+    </script>
+</body>
+
+</html>
