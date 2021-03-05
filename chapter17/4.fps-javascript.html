@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3.FPS测试-javascript动画</title>
+    <style>
+        h3{
+            margin-left:200px;
+        }
+        #a,
+        #b {
+            margin-left:200px;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            color: white;
+            padding: 20px;
+        }
+
+        #a {
+            background-color: #DA5961;
+            left: 50px;
+            top: 80px;
+            z-index: 2;
+        }
+
+        #b {
+            background-color: #3498db;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>3.FPS测试-原生JavaScript修改left实现动画</h3>
+    <div id="a" class="box">A</div>
+    <div id="b" class="box">B</div>
+    <script src="velocity.min.js"></script>
+    <script>
+       let a = document.querySelector('#a');
+       let delta = (80-50) / 2000 * 16.7;//动画步进
+       let direc = 1;//方向
+       let aLeft = 50;//初始位置
+
+       //位移动画
+       function move() {
+
+           if (aLeft > 80) {
+               direc = -1;
+           } 
+           if (aLeft < 50) {
+               direc = +1;
+           }
+           aLeft += direc * delta;
+           a.style.left = aLeft + 'px';
+
+           requestAnimationFrame(move);
+       }
+
+       //逐帧动画
+       move();
+    </script>
+</body>
+
+</html>

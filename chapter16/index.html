@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Impress.js变形动画示例</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-left:20px;
+        }
+        .container{
+            overflow:visible;
+            outline:black dashed thin;
+            margin-top:250px;
+            margin-left:200px;
+            height:100px;
+            width:100px;
+            padding:10px;
+            background-color: #eaeaea;
+        }
+        .box{
+            position:absolute;
+            transform-origin:center center;
+            transition:all 1s ease-in-out;
+        }
+        .box1{
+            height:100px;
+            width:100px;
+            background-color: #3498db;
+        }
+        .box2{
+            height:100px;
+            width:100px;
+            background-color: #1abc9c;
+            transform:translateX(120px);
+        }
+        .box3{
+            height:100px;
+            width:100px;
+            background-color: #da5961;
+            transform:translate(150px,-180px) rotateZ(-50deg)  scale(1.6); 
+        }
+    </style>
+</head>
+
+<body>
+    <p>手动模拟Impress.js转场效果</p>
+    <button id="btn">下一张</button>
+    <div class="container">
+        <div id="c1" class="box box1">
+        </div>
+        <div id="c2" class="box box2">
+        </div>
+        <div id="c3" class="box box3">
+        </div>
+    </div>
+  <script>
+     let step = 0;
+
+     document.getElementById('btn').addEventListener('click',function () {
+         if (step === 0) {
+            step1();
+         }else{
+            step2();
+         }
+     });
+
+     //第一次点击next发生变换
+     function step1() {
+        let boxes = document.querySelectorAll('.box');
+        boxes[0].style.transform = `translateX(-120px)`;
+        boxes[1].style.transform = `translateX(0)`;
+        boxes[2].style.transform = `translate(30px,-180px) rotateZ(-50deg)  scale(1.6)`;
+
+        //若下一个变换存在旋转,则需要提前修改变形参考中心
+        boxes[0].style.transformOrigin = '200px -130px';
+        boxes[1].style.transformOrigin = '80px -130px';
+        step ++;
+     }
+
+     //第二次点击next发生变换
+     function step2() {
+        let boxes = document.querySelectorAll('.box');
+          boxes[0].style.transform = `translate(-150px,180px) rotateZ(50deg) scale(0.625)`;
+          boxes[1].style.transform = `translate(-30px,180px) rotateZ(50deg) scale(0.625)`;
+          boxes[2].style.transform = `translate(0,0) rotateZ(0)  scale(1)`;
+     }
+
+  </script>
+</body>
+
+</html>

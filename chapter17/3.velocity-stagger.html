@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js-stagger动画示例</title>
+  <style>
+    ul{
+      margin-left:100px;
+    }
+    li {
+      list-style: none;
+      width: 200px;
+      padding: 4px;
+      text-align: center;
+      border: 1px solid #3498db;
+      color: white;
+      background-color: #3498db;
+      margin-bottom: 4px;
+      border-radius: 8px;
+      opacity:0;
+    }
+  </style>
+  <script src="./velocity.js"></script>
+  <script src="./velocity.ui.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>Velocity.js实现stagger动画渐入渐出效果
+    </p>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </div>
+  <script>
+    
+    window.onload = function () {
+      const items = document.querySelectorAll('li');
+      const ul = document.querySelector('ul');
+
+      //fade-in-left函数
+      function fadeInLeft(ele) {
+        return new Promise((resolve, reject) => {
+          ele.velocity({
+            opacity: 1,
+            transform: ['translateX(0)', 'translateX(-100px)']
+          }, {
+            stagger: 50,
+            duration: 300,
+            complete: function(){
+               resolve();
+            }
+          });
+        })
+      }
+
+      //fade-out-right函数
+      function fadeOutRight(ele) {
+        return new Promise((resolve, reject) => {
+          items.velocity({
+            opacity: [0, 1],
+            transform: ['translateX(100px)', 'translateX(0)'],
+          }, {
+            stagger: 50,
+            duration: 300,
+            complete: function(){
+              resolve();
+            }
+          });
+        })
+      }
+
+      //执行动画
+      fadeInLeft(items).then(() => {
+        setTimeout(() => {
+          fadeOutRight(items).then(() => {
+            ul.innerHTML = '';
+          })
+        }, 1000);
+      })
+
+    }
+  </script>
+</body>
+
+</html>

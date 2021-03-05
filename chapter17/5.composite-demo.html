@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐式合成</title>
+  <style>
+    @keyframes move{
+      from{
+        transform:translateY(50px);
+      }
+      to{
+        transform:translateY(90px);
+      }
+    }
+    
+    #box2{
+      animation: move 2s linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box1" style="transform:translateZ(0);position:absolute;height:200px;width:200px;background-color: #DA5961;"></div>
+  <div id="box2" style="position:absolute;left:30px;top:50px;height:200px;width:200px;background-color: #3498db;"></div>
+  <div id="box3" style="position:absolute;left:360px;top:100px;height:200px;width:200px;background-color: #1abc9c;"></div>
+</body>
+
+</html>
