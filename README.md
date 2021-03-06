@@ -121,3 +121,15 @@
 ## Ch17 velocity.js 高性能动画之谜
 `index.html`中提供了示例代码目录，双击打开即可。其中包括`transition`和`animation`动画的基本比较，`velocity.js`在不同场景下使用时的示例代码，以及不同CSS属性在动画过程中的FPS情况，合成层的隐式提升示例等。
 
+
+
+## Ch19 Record.js 语音信号处理
+
+`index.html`中提供了示例代码目录，双击打开即可，示例包括:
+
+- 1.使用`recorder.js`录制采样率为`16000Hz`的<b>单声道</b>音频
+
+![录制结果参数](https://github.com/dashnowords/imfe/blob/main/assets/ch19-result.png)
+
+- 2.在JS中添加处理音频信号的脚本节点
+- 3.使用MediaRecorder对象录制音频
