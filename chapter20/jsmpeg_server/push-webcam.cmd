@@ -1,0 +1,1 @@
+ffmpeg -f vfwcap  -i 0 -r 25 -vcodec libx264 -f mpegts -codec:v mpeg1video -s 360x240 -codec:a mp2 -b:a 128k http://localhost:8081/live

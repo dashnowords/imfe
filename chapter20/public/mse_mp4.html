@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用MediaSourceExtension播放mp4</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        video {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>使用MediaSourceExtension播放mp4</h3>
+        <video id="myvideo" controls autoplay></video>
+        <p id="tag"></p>
+    </div>
+</body>
+<script>
+    if (MediaSource === undefined) {
+        document.getElementById('tag').innerHTML = '当前浏览器不支持Media Source Extension';
+    }
+
+    const v = document.getElementById('myvideo');
+    const myMediaSource = new MediaSource();
+    const url = URL.createObjectURL(myMediaSource);
+    v.src = url;
+    myMediaSource.addEventListener('sourceopen', sourceOpen);
+
+    function sourceOpen() {
+        //frag_bunny.mp4
+        //https://developer.mozilla.org/zh-CN/docs/Web/API/MediaSource/addSourceBuffer
+        //vSourceBuffer = myMediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+
+        //normal_mp4_to_frag.mp4
+        vSourceBuffer = myMediaSource.addSourceBuffer('video/mp4; codecs="avc1.42C01F, mp4a.40.2"');
+
+        //获取资源
+        fetch("http://localhost:3000/assets/normal_mp4_to_frag.mp4")
+            .then(resp => resp.arrayBuffer())
+            .then(data => vSourceBuffer.appendBuffer(data))
+            .catch(err => console.log(err));
+    }
+
+
+</script>
+
+</html>

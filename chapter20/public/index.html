@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器播放各类型视频方案</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h3>19.在浏览器中播放各种不同类型的视频</h3>
+        <p style="color:#3498db">建议打开控制台，在networks中观察网络请求发送情况</p>
+        <ul>
+            <li><a href="./mp4.html">1.&lt;video&gt;标签播放mp4</a></li>
+            <li><a href="./videojs_mp4.html">2.使用video.js播放mp4</a></li>
+            <li><a href="./videojs_m3u8.html">3.使用video.js播放m3u8(.ts)</a></li>
+            <li><a href="./videojs_flv.html">4.使用video.js播放flv【基于flash插件】</a></li>
+            <li><a href="./flvjs_flv.html">5.使用flv.js播放flv【基于MSE】</a></li>
+            <li><a href="./mse_mp4.html">6.使用MediaSourceExtension播放mp4文件</a></li>
+            <li><a href="./mse_muxjs_ts.html">7.使用mux.js+MSE播放ts文件</a></li>
+            <li><a href="./videojs_rtmp.html">8.使用video.js播放本地摄像头rtmp流【本地1~1.5秒延迟】</a></li>
+            <li><a href="./jsmpeg_ws.html">9.使用jsmpeg.js+websocket播放本地摄像头【本地0.5秒以内延迟】</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

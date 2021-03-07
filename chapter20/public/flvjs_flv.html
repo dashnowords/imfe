@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flv.js播放flv格式视频</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        video {
+            width: 500px;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/flv.js/1.5.0/flv.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>flv.js播放flv视频(flv.js使用MSE技术实现)</h3>
+        <video id="videoElement" controls></video>
+        <p>点击后播放</p>
+    </div>
+</body>
+<script>
+    if (flvjs.isSupported()) {
+        var videoElement = document.getElementById('videoElement');
+        var flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            url: 'assets/flatUI_demo.flv'
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+    }
+</script>
+
+</html>

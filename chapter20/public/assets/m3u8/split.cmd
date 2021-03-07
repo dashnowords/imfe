@@ -1,0 +1,1 @@
+ffmpeg -i C:\Users\admin\Desktop\demo\public\assets\m3u8\bunny_flatUI.mp4 -hls_time 3 -hls_list_size 0 -f hls C:\Users\admin\Desktop\demo\public\assets\m3u8\flatUI_demo.m3u8

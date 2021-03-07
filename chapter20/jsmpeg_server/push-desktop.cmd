@@ -1,0 +1,1 @@
+ffmpeg -f gdigrab -framerate 6 -i desktop -f mpegts -codec:v mpeg1video -s 960x540 -b:v 1500k -r 30 -bf 0 -codec:a mp2 -ar 44100 -ac 1 -b:a 128k http://localhost:8081/live
