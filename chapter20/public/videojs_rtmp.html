@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>video.js播放基于hls的rtmp流视频</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        video {
+            width: 500px;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/video.js/7.8.1/video.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/video.js/7.8.1/video-js.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/videojs-flash/2.2.1/videojs-flash.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>video.js播放基于hls的rtmp视频</h3>
+        <p>rtmp源地址为rtmp://localhost:1935/live/home</p>
+        <p>说明：</p>
+        <video class="video-js">
+            <source src="rtmp://localhost:1935/live/home" type="rtmp/flv">
+        </video>
+    </div>
+</body>
+<script>
+    videojs(document.querySelector('.video-js'), {
+        techOrder:['flash', 'html5'],
+        controls: true,
+        autoplay: false,
+        preload: 'auto',
+        flash:{
+            swf:'assets/video-js.swf'
+        }
+    });
+</script>
+
+</html>

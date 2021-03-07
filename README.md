@@ -133,3 +133,28 @@
 
 - 2.在JS中添加处理音频信号的脚本节点
 - 3.使用MediaRecorder对象录制音频
+
+
+## Ch20 jsmpeg.js 流媒体播放器
+![第20章目录截图](https://github.com/dashnowords/imfe/blob/main/assets/ch20-abstract.png)
+进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+
+- TS流编码标准ISO/IEC13818-1——《Information_technology_Generic_coding》
+- 使用`video.js`配合插件或其他库播放各种不同格式的视频文件
+- 使用`video.js`播放基于`HLS`的`rtmp`视频流
+  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-rtmp.png)
+  - 下载自己电脑系统支持的`ffmpeg`，并添加`ffmpeg`命令至全局环境变量`path`中
+  - 解压缩`chapter20/nginx.zip`(其中已添加`nginx-rtmp-module`扩展，并配置相应端口地址)
+  - 将解压后的地址添加到系统环境变量`path`中（以便在任何目录下可以使用`nginx`命令行）
+  - 点击解压缩文件中的`start.cmd`即可启动一个简易的流媒体服务器
+  - 打开命令行，进入`chapter20/rtmp_server`目录，输入`py webcam_rtmp.py`开始将笔记本电脑前置摄像头采集的视频推流至刚才启动的服务器（代码中使用了`ffmpeg`实现推流）
+  - 在浏览器访问`localhost:3000`，打开【示例8】，等待约3-4秒后即可看到由摄像头拍摄到的画面。
+- 使用`jsmpeg.js`播放视频流画面（下图中最外侧鼠标为本地屏幕，其他均为使用ffmpeg捕获的桌面渲染结果，可以延迟很低）
+  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-jsmpeg.gif)
+  - 下载自己电脑系统支持的`ffmpeg`，并添加`ffmpeg`命令至全局环境变量`path`中
+  - 打开命令行，进入`chapter20/jsmpeg_server`目录，先双击`start-ws-server.cmd`启动流媒体服务器
+    - 双击`push-webcam.cmd`会使用`ffmpeg`推送本地摄像头采集的视频信号至`http://localhost:8081/live`
+    - 双击`push-desktop.cmd`会使用`ffmpeg`推送本地桌面画面的视频信号至`http://localhost:8081/live`
+  - 访问`localhost:3000`，打开【示例9】，即可看到低延迟demo效果。
+
+

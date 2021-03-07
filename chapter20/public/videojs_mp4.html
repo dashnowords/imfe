@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>video.js播放mp4格式视频</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        video {
+            width: 500px;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/video.js/7.8.1/video.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/video.js/7.8.1/video-js.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h3>video.js播放mp4视频</h3>
+        <video class="video-js">
+            <source src="assets/frag_bunny.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+<script>
+    videojs(document.querySelector('.video-js'), {
+        controls: true,
+        autoplay: false,
+        preload: 'auto'
+    });
+</script>
+
+</html>
