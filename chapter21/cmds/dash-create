@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+program
+    .option('-y, --yes', 'set yes if the question requires an answer with boolean value')
+    .action(function ({ yes = false }, args) {
+        console.log(`处理子命令:create`);
+
+        if (args) {
+            let name = args[0];
+            console.log(`正在为您创建名称为${name}的新工程...`);
+            process.exit(1);
+        } else { 
+            console.log('提示:必须为create命令指定项目名称，命令调用格式为:主命令 + create <projectName>');
+        }
+    })
+    .parse(process.argv);
+

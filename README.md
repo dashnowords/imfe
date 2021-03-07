@@ -158,3 +158,9 @@
   - 访问`localhost:3000`，打开【示例9】，即可看到低延迟demo效果。
 
 
+## Ch21 Commander.js “懒”是第一生产力
+![第21章inquirer](https://github.com/dashnowords/imfe/blob/main/assets/ch21-inquirer.png)
+进入目录后执行`npm run install`安装依赖。
+
+- `node inquirer-demo.js `展示了交互式风格的命令行工具
+- 打开终端，进入`cmds`文件夹，`node dash`展示了git风格的命令行工具，`node dash install`展示了子命令的使用
