@@ -59,9 +59,11 @@
 
 ## Ch14  Snap.svg 变形记
 
+> 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。
+
 ![svg动画示例](https://github.com/dashnowords/imfe/blob/main/assets/ch14-animation.gif)
 
-进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+示例包括：
 
 - svg元素特性-添加事件监听
 - svg元素特性-添加viewBox视口
@@ -74,9 +76,11 @@
 
 ## Ch15  Three.js 第三个维度
 
+> 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。
+
 ![3D模型示例](https://github.com/dashnowords/imfe/blob/main/assets/ch15-main.png)
 
-进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+示例包括：
 
 - `plane`-平面渐离
   
@@ -124,8 +128,10 @@
 
 
 ## Ch20 jsmpeg.js 流媒体播放器
+> 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问
+
 ![第20章目录截图](https://github.com/dashnowords/imfe/blob/main/assets/ch20-abstract.png)
-进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。示例包括：
+示例包括：
 
 - TS流编码标准ISO/IEC13818-1——《Information_technology_Generic_coding》
 - 使用`video.js`配合插件或其他库播放各种不同格式的视频文件
@@ -147,15 +153,17 @@
 
 
 ## Ch21 Commander.js “懒”是第一生产力
+> 进入目录后执行`npm run install`安装依赖
+
 ![第21章inquirer](https://github.com/dashnowords/imfe/blob/main/assets/ch21-inquirer.png)
-进入目录后执行`npm run install`安装依赖。
 
 - `node inquirer-demo.js `展示了交互式风格的命令行工具
 - 打开终端，进入`cmds`文件夹，`node dash`展示了git风格的命令行工具，`node dash install`展示了子命令的使用
 
 
 ## Ch22 Shelljs 操作系统的马甲
-进入目录后执行`npm run install`安装依赖。
+> 进入目录后执行`npm run install`安装依赖。
+
 - `upload.js`实现了将dist目录中的文件压缩为`public.zip`文件
 - `deploy.js`实现了使用`shelljs`在服务端解压并替换静态文件的过程(只能在`linux`系统运行，原理相同)
 
@@ -163,3 +171,22 @@
 
 ## Ch23 HybridApp 移动端的地盘
 收录了`Ionic`官方推出的简易电子书《 Hybrid vs Native》
+
+
+## Ch24 protobuf.js 二进制消息
+> 本章demo需要先使用`yarn`或`npm install`命令安装依赖后再使用
+
+![第24章protobufjs](https://github.com/dashnowords/imfe/blob/main/assets/ch24-abstract.png)
+
+- `/proto`目录中存放示例用的*proto*定义文件。
+- `search.proto`，`product.proto`，`search-rpc.proto`为示例的定义
+  - `proto2js.cmd`为Windows环境下脚本，双击执行可用于将`proto`文件编译为`js`类定义
+  - `proto2py.cmd`为Windows环境下脚本，双击执行可用于将`proto`文件编译为`python`类定义
+- `/google-proto`利用官方protobuf技术在js应用和python应用之间实现跨语言通讯
+  - `app.js`依赖于`proto`文件编译的JS类，运行方式为`node app.js`
+  - `app.py`依赖于`proto`文件编译的Python类，运行方式为`py app.py`
+- `/protobufjs`演示protobuf.js库用法的基本用法
+- `/grpc`演示grpc框架的基本用法
+- `pbjs-grpc-client.js`grpc客户端示例，需要在服务端程序启动后再启动
+  - `pbjs-grpc-server.js`grpc服务端示例，需要先启动
+- `net-server.js`用于展示服务端收到的完整HTTP报文，使用`node`命令运行后，用`postman`或其他方式发请求后查看。

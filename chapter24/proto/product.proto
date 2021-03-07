@@ -1,0 +1,8 @@
+syntax="proto2";
+message Product {
+    required int32 uuid = 1; //唯一id
+    required string name = 2; //关键词
+    required int32 supplier_id = 3; //供应商id
+    required int32 create_time = 4; //创建时间
+    required int32 quantity = 5; //数量
+  }
