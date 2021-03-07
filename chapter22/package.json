@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "archiver": "^5.2.0",
+    "node-ssh": "^11.1.1",
+    "shelljs": "^0.8.3"
+  }
+}

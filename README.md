@@ -164,3 +164,8 @@
 
 - `node inquirer-demo.js `展示了交互式风格的命令行工具
 - 打开终端，进入`cmds`文件夹，`node dash`展示了git风格的命令行工具，`node dash install`展示了子命令的使用
+
+## Ch22 Shelljs 操作系统的马甲
+进入目录后执行`npm run install`安装依赖。
+- `upload.js`实现了将dist目录中的文件压缩为`public.zip`文件
+- `deploy.js`实现了使用`shelljs`在服务端解压并替换静态文件的过程(只能在`linux`系统运行，原理相同)
