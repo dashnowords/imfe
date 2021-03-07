@@ -1,0 +1,12 @@
+{
+  "name": "dashcmd",
+  "version": "1.0.0",
+  "description": "demo of command.js",
+  "bin": "./cmds/dash",
+  "main": "./cmds/dash",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^4.1.0",
+    "inquirer": "6.2.0"
+  }
+}

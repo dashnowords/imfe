@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+program
+  .option('-a, --all', 'update all packages')
+  .action(function(env,options){
+    console.log(`处理子命令:update`);
+  })
+  .parse(process.argv);
+

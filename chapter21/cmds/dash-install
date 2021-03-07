@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+var program = require('commander');
+
+program
+  .option('-f, --force', 'force installation')
+  .action(function(options){
+    console.log('处理子命令:install');
+  })
+  .parse(process.argv);
+
