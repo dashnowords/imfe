@@ -142,7 +142,7 @@
 - TS流编码标准ISO/IEC13818-1——《Information_technology_Generic_coding》
 - 使用`video.js`配合插件或其他库播放各种不同格式的视频文件
 - 使用`video.js`播放基于`HLS`的`rtmp`视频流
-  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-rtmp.png)
+  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-rtmp-stream.png)
   - 下载自己电脑系统支持的`ffmpeg`，并添加`ffmpeg`命令至全局环境变量`path`中
   - 解压缩`chapter20/nginx.zip`(其中已添加`nginx-rtmp-module`扩展，并配置相应端口地址)
   - 将解压后的地址添加到系统环境变量`path`中（以便在任何目录下可以使用`nginx`命令行）
