@@ -1,0 +1,32 @@
+// greeter.proto
+syntax = "proto2";
+
+package product; 
+
+service ProductService {
+    rpc query (SearchRequest) returns (SearchResponse) {};
+}
+
+/* 库存查询请求接口 */
+message SearchRequest {
+    required string keywords = 1; //关键词
+    required int32 page = 2; //页码
+    required int32 items_per_page = 3; //每页展示数量
+    optional int32 supplier_id = 4; //供应商id
+    optional string create_at = 5; //创建时间
+  }
+  
+/* 库存查询响应接口*/
+  message SearchResponse {
+     required int32 status = 1; //响应状态
+     required int32 total = 2; //总条目数
+     repeated Product data = 3; //数据列表
+  }
+
+  message Product {
+    required int32 uuid = 1; //唯一id
+    required string name = 2; //名称
+    required int32 supplier_id = 3; //供应商id
+    required string create_time = 4; //创建时间
+    required int32 quantity = 5; //数量
+  }

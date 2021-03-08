@@ -1,0 +1,19 @@
+syntax="proto2";
+
+import "product.proto";
+
+/* 库存查询请求接口 */
+message SearchRequest {
+    required string keywords = 1; //关键词
+    required int32 page = 2; //页码
+    required int32 items_per_page = 3; //每页展示数量
+    optional int32 supplier_id = 4; //供应商id
+    optional string create_at = 5; //创建时间
+  }
+  
+/* 库存查询响应接口*/
+  message SearchResponse {
+     required int32 status = 1; //响应状态
+     required int32 total = 2; //总条目数
+     repeated Product data = 3; //数据列表
+  }
