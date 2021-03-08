@@ -174,7 +174,7 @@
 
 
 ## Ch24 protobuf.js 二进制消息
-> 本章demo需要先使用`yarn`或`npm install`命令安装依赖后再使用
+> 本章demo需要先使用`npm install`命令安装依赖后再使用
 
 ![第24章protobufjs](https://github.com/dashnowords/imfe/blob/main/assets/ch24-abstract.png)
 
@@ -190,3 +190,10 @@
 - `pbjs-grpc-client.js`grpc客户端示例，需要在服务端程序启动后再启动
   - `pbjs-grpc-server.js`grpc服务端示例，需要先启动
 - `net-server.js`用于展示服务端收到的完整HTTP报文，使用`node`命令运行后，用`postman`或其他方式发请求后查看。
+
+
+## Ch25 Inversify.js控制反转
+> 本章demo需要先使用`npm install`命令安装依赖后再使用，使用`ts-node`命令可直接运行ts
+
+- `ts-node ioc.ts`运行手动实现的简易IOC框架
+- 进入inversify-demo目录，在终端输入`ts-node demo.ts`运行inversify官方示例
