@@ -1,0 +1,16 @@
+{
+    "images": [
+        "/dragon/imgs/player.png"
+    ],
+    "frames": {
+        "width": 60,
+        "height": 62,
+        "count": 5
+    },
+    "animations": {
+        "fly": {
+            "frames":[0,1,2,3,4],
+            "speed":0.1
+        }
+    }
+}

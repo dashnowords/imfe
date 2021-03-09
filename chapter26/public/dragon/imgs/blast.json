@@ -1,0 +1,16 @@
+{
+    "images": [
+        "/dragon/imgs/blast.png"
+    ],
+    "frames": {
+        "width": 490,
+        "height": 399,
+        "count": 7
+    },
+    "animations": {
+        "play": [
+            0,
+            6
+        ]
+    }
+}

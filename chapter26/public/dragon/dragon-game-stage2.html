@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞龙大战</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/preloadjs.min.js"></script>
+    <script src="../lib/soundjs.min.js"></script>
+    <script src="../lib/easeljs.min.js"></script>
+    <script src="../lib/tweenjs.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div id="welcome" class="welcome">
+            <!-- 进度条 -->
+            <h2 id="progress-text" class="progress-text">0%</h2>
+            <div id="progress" class="progress-bar">
+                <div id="track" class="progress-bar-track"></div>
+            </div>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <script src="js/preload.js"></script>
+    <script src="js/background.js"></script>
+    <script>
+        // 预加载资源
+        startPreload();
+
+        //自己管理舞台元素的类
+        eles = [];
+
+        //点击play按钮后执行
+        function startPlay() {
+            //初始化舞台
+            initStage();
+            let w = stage.canvas.width;
+            let h = stage.canvas.height;
+            // 初始化背景
+            let bg = new Background(w, h);
+            //加入元素
+            stage.addChild(bg.shape);
+           // stage.addChild(bg.shape2);
+            eles.push(bg);
+            //配置舞台参数
+            createjs.Ticker.timingMode = createjs.Ticker.RAF;
+            createjs.Ticker.addEventListener("tick", tick);
+        }
+        
+        function initStage() {
+            $('#welcome').remove()
+            let canvas = document.getElementById('canvas')
+            canvas.width = 420;
+            canvas.height = 640;
+            stage = new createjs.Stage(canvas);
+            $('#canvas').show();
+        }
+
+        function tick() {
+            // 更新元素
+            eles.map(i=>{
+                i.update();
+            })
+            // 更新舞台
+            stage.update();
+        }
+
+        
+    </script>
+</body>
+
+</html>

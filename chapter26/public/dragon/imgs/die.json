@@ -1,0 +1,16 @@
+{
+    "images": [
+        "/dragon/imgs/die.png"
+    ],
+    "frames": {
+        "width": 192,
+        "height": 192,
+        "count": 4
+    },
+    "animations": {
+        "play": {
+            "frames":[0,1,2,3],
+            "speed":1
+        }
+    }
+}

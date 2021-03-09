@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞龙大战</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/preloadjs.min.js"></script>
+    <script src="../lib/soundjs.min.js"></script>
+    <script src="../lib/easeljs.min.js"></script>
+    <script src="../lib/tweenjs.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="welcome" class="welcome">
+            <!-- 进度条 -->
+            <h2 id="progress-text" class="progress-text">0%</h2>
+            <div id="progress" class="progress-bar">
+                <div id="track" class="progress-bar-track"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/preload.js"></script>
+    <script>
+        startPreload();
+
+        function startPlay() {
+            alert('开始游戏!')
+        }
+    </script>
+</body>
+
+</html>
