@@ -197,3 +197,11 @@
 
 - `ts-node ioc.ts`运行手动实现的简易IOC框架
 - 进入inversify-demo目录，在终端输入`ts-node demo.ts`运行inversify官方示例
+
+
+## Ch26 CreateJS 解构游戏开发
+> 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问
+
+![第26章createJS](https://github.com/dashnowords/imfe/blob/main/assets/ch26-abstract.png)
+
+本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。

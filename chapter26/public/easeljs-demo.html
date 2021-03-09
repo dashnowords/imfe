@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>easel.js demo</title>
+    <script src="./lib/easeljs.min.js"></script>
+</head>
+
+<body>
+    <p>点击方块可改变移动方向</p>
+    <canvas id="myCanvas" width="640" height="400"></canvas>
+    <script>
+        init();
+        drawRoundRect();//绘制圆角矩形
+        //drawRoundRectVanilla();//原生API绘制圆角矩形
+        addInteract();//加入交互
+        listenToTicker();//加入定时动画
+
+        //初始化舞台
+        function init() {
+            canvas = document.getElementById('myCanvas');
+            width = canvas.width;
+            height = canvas.height;
+            stage = new createjs.Stage('myCanvas');
+        }
+
+        //绘制圆角矩形的示例
+        function drawRoundRect() {
+            let shape = new createjs.Shape();
+            shape.graphics.beginFill('yellowgreen').drawRoundRect(50, 50, 50, 50, 4);
+            shape.__custom__ = {dir:1};//自定义属性标记运动方向
+            stage.addChild(shape);
+            stage.update();
+        }
+
+        //加入定时动画
+        function listenToTicker() {
+            createjs.Ticker.addEventListener('tick',handleTicker);          
+        }
+
+        function handleTicker(event) {
+             let shape = stage.getChildAt(0);
+             shape.x +=  shape.__custom__.dir;
+             stage.update();
+        }
+
+        //增加事件交互
+        function addInteract() {
+            let shape = stage.getChildAt(0);
+            
+            stage.addEventListener('mousedown',function () {
+                console.log('在stage层面监听到点击事件');
+            })
+
+            shape.on('click',function(){
+                console.log('在shape层面监听到点击事件');
+                shape.__custom__.dir = - shape.__custom__.dir;
+            })
+        }
+
+        //原生方法绘制
+        function drawRoundRectVanilla() {
+            canvas = document.getElementById('myCanvas');
+            context = canvas.getContext('2d');
+            const sideL = 50 - 2 * 4;
+            const R = 4;
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.moveTo(50+R, 50);
+            context.lineTo(50+R+sideL, 50);
+            context.arcTo(50+2*R+sideL, 50, 50+2*R+sideL, 50 + R, R);
+            context.lineTo(50+2*R+sideL, 50+R+sideL);
+            context.arcTo(50+2*R+sideL, 50+2*R+sideL, 50+R+sideL, 50+2*R+sideL, R);
+            context.lineTo(50+R,50+2*R+sideL);
+            context.arcTo(50, 50+2*R+sideL, 50, 50+R+sideL, R);
+            context.lineTo(50, 50+R);
+            context.arcTo(50, 50, 50+R, 50, R);
+            context.closePath();
+            context.stroke();
+        }
+    </script>
+</body>
+
+</html>

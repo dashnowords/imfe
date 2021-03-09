@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/preloadjs.min.js"></script>
+    <script src="./lib/soundjs.min.js"></script>
+</head>
+
+<body>
+    <p>Web环境中要求音频资源在完成加载后，必须由用户触控交互事件（例如鼠标点击或移动设备上点击等）触发后才能播放。</p>
+    <p id="loading">正在加载...</p>
+    <script>
+        var queue = new createjs.LoadQueue();
+        let init = false;
+        let bgMusicInstance = null;
+
+        queue.installPlugin(createjs.Sound);
+
+        queue.on("complete", handleComplete, this);
+
+        queue.loadFile({
+            id: "bg-music",
+            src: "./assets/RiverFlowsInYou.mp3"
+        });
+
+        /* 声明监听函数 */
+        function handleComplete() {
+            document.getElementById('loading').innerHTML = '已加载(单击屏幕开始播放,再次单击可暂停)';
+            console.log('加载完成!');
+        }
+
+        window.addEventListener('click', function () {
+            let bgMusic = queue.getResult('bg-music');
+
+            if (!init && bgMusic) {
+                bgMusic.volumn = 0.6;
+                bgMusicInstance = createjs.Sound.play('bg-music');
+                init = true;
+                return 
+            }
+            if (bgMusicInstance) {
+                let last = bgMusicInstance.paused
+                bgMusicInstance.setPaused(!last);
+                document.getElementById('loading').innerHTML = bgMusicInstance.paused ? '已暂停' : '已恢复';
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

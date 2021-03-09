@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes goDown {
+            0% {
+                background-position: 0 0;
+            }
+
+            25% {
+                background-position: 32px 0;
+            }
+
+            50% {
+                background-position: 64px 0;
+            }
+
+            75% {
+                background-position: 96px 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .player-go-down {
+            width: 32px;
+            Height: 48px;
+            background-image: url('./assets/spritesheet.png');
+            background-position: 0 0;
+            animation: goDown 1s steps(1, start) infinite;
+        }
+    </style>
+</head>
+
+<body>
+   <div class="player-go-down"></div>
+</body>
+
+</html>
