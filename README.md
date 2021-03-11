@@ -207,9 +207,11 @@
 本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。
 
 ## Ch27  matter.js 经典物理
-![第27章matterjs](https://img2020.cnblogs.com/blog/1354575/202003/1354575-20200310202114482-1163801297.gif)
+![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract.gif)
 
-![第27章matterjs](https://img2020.cnblogs.com/blog/1354575/202003/1354575-20200310202053695-1494564556.gif)
+![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract2.gif)
+
+
 
 - `demo-matterjs`是`matterjs`官方提供的弹簧约束的Demo
 - `demo-angry-bird-matterjs`是愤怒的小鸟物理模型的Demo
