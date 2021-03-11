@@ -205,3 +205,14 @@
 ![第26章createJS](https://github.com/dashnowords/imfe/blob/main/assets/ch26-abstract.png)
 
 本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。
+
+## Ch27  matter.js 经典物理
+![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract.png)
+
+- `demo-matterjs`是`matterjs`官方提供的弹簧约束的Demo
+- `demo-angry-bird-matterjs`是愤怒的小鸟物理模型的Demo
+- `demo-angry-bird`是使用`matterjs+CreateJS`组合开发的Demo
+- `libs`中存放所有第三方依赖
+
+所有demo直接双击即可打开。
+
