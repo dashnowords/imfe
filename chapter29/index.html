@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brain.js示例</title>
+    <script src="brain-browser.js"></script>
+</head>
+
+<body>
+    <p>使用brain.js进行训练和结果分类，可直接查看源码，结果可打开控制台查看</p>
+    <script>
+        //训练样本
+        const trainingData = [
+            {input:[0.308,1,0,0,0],output:[1,0,0]},
+            {input:[0.571,1,0,0,0],output:[1,0,0]},
+            {input:[0.828,1,0,0,1],output:[0,1,0]},
+            {input:[0.761,0,1,0,1],output:[0,0,1]},
+            {input:[0.783,1,0,0,1],output:[0,1,0]},
+            {input:[0.471,1,0,0,1],output:[1,0,0]},
+            {input:[0.870,1,0,0,0],output:[0,1,0]},
+            {input:[0.696,0,1,0,0],output:[0,0,1]},
+            {input:[0.739,0,0,1,0],output:[0,1,0]},
+            {input:[0.775,1,0,0,1],output:[0,0,1]}
+        ]
+
+        //测试数据 100cm 黑头发 无胡须
+        const testData = [0.333,1,0,0,0]
+
+        //神经网络配置
+        const netConfig = {
+            binaryThresh: 0.5,
+            hiddenLayers: [3], // array of ints for the sizes of the hidden layers in the network
+            activation: 'sigmoid', // supported activation types: ['sigmoid', 'relu', 'leaky-relu', 'tanh'],
+            //leakyReluAlpha: 0.01, // supported for activation type 'leaky-relu'
+        }
+
+        //训练过程参数
+        const trainingConfig = {
+            errorThresh:0.005,
+            log:false,
+            logPeriod:10
+        }
+
+        // create a simple feed forward neural network with backpropagation
+        const net = new brain.NeuralNetwork(netConfig)
+        //训练神经网络
+        net.train(trainingData, trainingConfig);
+        //测试神经网络
+        const output = net.run(testData);
+        //输出结果 
+        console.log(output)
+    </script>
+</body>
+
+</html>

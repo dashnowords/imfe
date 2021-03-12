@@ -225,8 +225,21 @@
 ## Ch28 Phaser 从工具到生态
 > 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
 
-![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract1.gif)
+![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract.png)
 示例包括：
+
 - 《生死忍者》游戏
 -  tiledmap瓦片图制作的《坦克大战》地图实例
+
+
+
+## Ch29 brain.js模拟大脑
+
+
+
+![第29章 brain.js](https://github.com/dashnowords/imfe/blob/main/assets/ch29-abstract.png)
+
+- `index.html`是`brain.js`基本示例
+- `xor-demo-[i].html`是**XOR分类问题**的单隐藏层模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
+- `xor-demo-[i,j].html`是**XOR分类问题**的包含2个隐藏层的模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
 
