@@ -1,0 +1,120 @@
+{
+	"textures": [
+		{
+			"image": "assets1.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 628,
+				"h": 1242
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "bg1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 628,
+						"h": 1043
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 626,
+						"h": 1042
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 626,
+						"h": 1042
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "logo.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 204,
+						"h": 197
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 195,
+						"h": 196
+					},
+					"frame": {
+						"x": 1,
+						"y": 1045,
+						"w": 195,
+						"h": 196
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "loading.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 427,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 3,
+						"w": 422,
+						"h": 47
+					},
+					"frame": {
+						"x": 198,
+						"y": 1045,
+						"w": 422,
+						"h": 47
+					},
+					"anchor": {
+						"x": 2.7755575615628914e-17,
+						"y": 0
+					}
+				},
+				{
+					"filename": "loading2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 409,
+						"h": 31
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 2,
+						"w": 402,
+						"h": 27
+					},
+					"frame": {
+						"x": 198,
+						"y": 1094,
+						"w": 402,
+						"h": 27
+					},
+					"anchor": {
+						"x": 0,
+						"y": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:291d04966f8e5a9c822846e1368b973f:905ddd0f413b8686a3ece7488598db20:a5b21d478e7f541a697f257f923f3c08$"
+	}
+}

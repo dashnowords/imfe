@@ -207,7 +207,7 @@
 本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。
 
 ## Ch27  matter.js 经典物理
-![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract.gif)
+![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract1.gif)
 
 ![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract2.gif)
 
@@ -219,4 +219,14 @@
 - `libs`中存放所有第三方依赖
 
 所有demo直接双击即可打开。
+
+
+
+## Ch28 Phaser 从工具到生态
+> 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
+
+![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract1.gif)
+示例包括：
+- 《生死忍者》游戏
+-  tiledmap瓦片图制作的《坦克大战》地图实例
 

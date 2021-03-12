@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser 开箱即用的工具包</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+    <!-- <script src="lib/phaser.min.js"></script> -->
+    <script src="lib/phaser-arcade-physics.min.js"></script>
+    <script src="./js/bootScene.js"></script>
+    <script src="./js/preloadScene.js"></script>
+    <script src="./js/menuScene.js"></script>
+    <script src="./js/playScene.js"></script>
+    <script>
+        const cWidth = 398;
+        const cHeight = 590;
+        var config = {
+            type: Phaser.AUTO,
+            width: cWidth,
+            height: cHeight,
+            physics:{
+                default:'arcade',
+                arcade:{
+                    debug:false,
+                    gravity:{y:80}
+                }
+            }
+        };
+        
+        var game = new Phaser.Game(config);
+
+        //添加游戏的各个场景
+        game.scene.add('boot', bootScene);
+        game.scene.add('prelaod', preloadScene);
+        game.scene.add('menu', menuScene);
+        game.scene.add('play', playScene); 
+        game.scene.start('boot');
+
+    </script>
+</body>
+
+</html>
