@@ -1,0 +1,12 @@
+{
+  "name": "robotics-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "johnny-five": "^1.4.0"
+  },
+  "devDependencies": {
+    "@serialport/list": "^9.0.0"
+  }
+}
