@@ -207,7 +207,7 @@
 本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。
 
 ## Ch27  matter.js 经典物理
-![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract.gif)
+![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract1.gif)
 
 ![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract2.gif)
 
@@ -220,3 +220,37 @@
 
 所有demo直接双击即可打开。
 
+
+
+## Ch28 Phaser 从工具到生态
+> 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
+
+![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract.png)
+示例包括：
+
+- 《生死忍者》游戏
+-  tiledmap瓦片图制作的《坦克大战》地图实例
+
+
+
+## Ch29 brain.js模拟大脑
+
+
+
+![第29章 brain.js](https://github.com/dashnowords/imfe/blob/main/assets/ch29-abstract.png)
+
+- `index.html`是`brain.js`基本示例
+- `xor-demo-[i].html`是**XOR分类问题**的单隐藏层模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
+- `xor-demo-[i,j].html`是**XOR分类问题**的包含2个隐藏层的模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
+
+## Ch30  TensorFlow.js 开箱即用的深度学习工具
+> 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
+
+![第30章 tensorflow.js](https://github.com/dashnowords/imfe/blob/main/assets/ch30-abstract.png)
+
+- `conv.html`-卷积层对图片处理效果可视化
+- `conv-pooling.html`-卷积层+最大池化层对图片处理效果可视化
+- `LeNet5`-文件夹中为`TensorFlow.js`官方提供的手写字体分类示例
+- `speechCommands/speech-cmd.html`-官方提供的短语音命令扩展
+- `speechCommands/speech-cmd-pacman.html`-基于预训练模型的中文声控《吃豆人》
+- `Gradient-Based Learning Applied to Document Recognition.pdf`-LeNet网络学术论文
