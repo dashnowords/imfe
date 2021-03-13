@@ -226,8 +226,8 @@
 > 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
 
 ![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract.png)
-示例包括：
 
+示例包括：
 - 《生死忍者》游戏
 -  tiledmap瓦片图制作的《坦克大战》地图实例
 
