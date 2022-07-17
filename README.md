@@ -1,5 +1,5 @@
-# 《我是前端》示例代码
->:whale: 《我是前端》配套示例代码仓，下载代码仓后需要先执行`npm install`安装依赖。
+# 《 前端跨界开发指南-JavaScript工具库原理解析与实战 》示例代码
+>:whale: 下载代码仓后需要先执行`npm install`安装依赖。
 
 
 
@@ -61,7 +61,7 @@
 
 > 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。
 
-![svg动画示例](https://github.com/dashnowords/imfe/blob/main/assets/ch14-animation.gif)
+![svg动画示例](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c0c84e42616445db4aff2f6d64f8451~tplv-k3u1fbpfcp-watermark.image)
 
 示例包括：
 
