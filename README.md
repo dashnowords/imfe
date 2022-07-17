@@ -235,7 +235,7 @@
 
 
 
-![第29章 brain.js](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5180be984fed4f2ebd4f737f228d2cc2~tplv-k3u1fbpfcp-watermark.image?)
+<img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5180be984fed4f2ebd4f737f228d2cc2~tplv-k3u1fbpfcp-watermark.image?" alt="第29章 brain.js" style="zoom:80%;" />
 
 - `index.html`是`brain.js`基本示例
 - `xor-demo-[i].html`是**XOR分类问题**的单隐藏层模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
@@ -244,7 +244,7 @@
 ### Ch30  TensorFlow.js 开箱即用的深度学习工具
 > 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
 
-![第30章 tensorflow.js](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d09b9649482c4e8bb25579318f622499~tplv-k3u1fbpfcp-watermark.image?)
+<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d09b9649482c4e8bb25579318f622499~tplv-k3u1fbpfcp-watermark.image?" alt="第30章 tensorflow.js" style="zoom:80%;" />
 
 - `conv.html`-卷积层对图片处理效果可视化
 - `conv-pooling.html`-卷积层+最大池化层对图片处理效果可视化
@@ -256,7 +256,7 @@
 ### Ch31 Johnny-Five 从感知到控制
 > 进入目录后执行`npm run install`安装依赖。
 
-![第31章 tensorflow.js](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb37f7948717480e83eab24c0a1cc0ca~tplv-k3u1fbpfcp-watermark.image?)
+<img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb37f7948717480e83eab24c0a1cc0ca~tplv-k3u1fbpfcp-watermark.image?" alt="第31章 tensorflow.js" style="zoom:50%;" />
 
 - `/arduino_dht11`目录中存放了使用`fritizing`软件绘制的实验连线图
 - `/arduino_led`目录存放了三色LED灯实验的连线图，`Arduino`原生开发代码和实验小视频
