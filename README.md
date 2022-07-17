@@ -78,7 +78,7 @@
 
 > 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问。
 
-![3D模型示例](https://github.com/dashnowords/imfe/blob/main/assets/ch15-main.png)
+![3D模型示例](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c04eab0e86814844bf17fdefa29368a0~tplv-k3u1fbpfcp-watermark.image)
 
 示例包括：
 
@@ -121,7 +121,7 @@
 
 - 1.使用`recorder.js`录制采样率为`16000Hz`的<b>单声道</b>音频
 
-![录制结果参数](https://github.com/dashnowords/imfe/blob/main/assets/ch19-result.png)
+<img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa4ff682f9db4c6694f363341d20df34~tplv-k3u1fbpfcp-watermark.image?" alt="录制结果参数" style="zoom:70%;" />
 
 - 2.在JS中添加处理音频信号的脚本节点
 - 3.使用MediaRecorder对象录制音频
@@ -130,13 +130,13 @@
 ## Ch20 jsmpeg.js 流媒体播放器
 > 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问
 
-![第20章目录截图](https://github.com/dashnowords/imfe/blob/main/assets/ch20-abstract.png)
+![第20章目录截图](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43a96a2a3872467692769ad70bb58796~tplv-k3u1fbpfcp-watermark.image?)
 示例包括：
 
 - TS流编码标准ISO/IEC13818-1——《Information_technology_Generic_coding》
 - 使用`video.js`配合插件或其他库播放各种不同格式的视频文件
 - 使用`video.js`播放基于`HLS`的`rtmp`视频流
-  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-rtmp-stream.png)
+  - <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b831222a245a48e1b8819307d6af8635~tplv-k3u1fbpfcp-watermark.image?" alt="基于hls" style="zoom:80%;" />
   - 下载自己电脑系统支持的`ffmpeg`，并添加`ffmpeg`命令至全局环境变量`path`中
   - 解压缩`chapter20/nginx.zip`(其中已添加`nginx-rtmp-module`扩展，并配置相应端口地址)
   - 将解压后的地址添加到系统环境变量`path`中（以便在任何目录下可以使用`nginx`命令行）
@@ -144,7 +144,7 @@
   - 打开命令行，进入`chapter20/rtmp_server`目录，输入`py webcam_rtmp.py`开始将笔记本电脑前置摄像头采集的视频推流至刚才启动的服务器（代码中使用了`ffmpeg`实现推流）
   - 在浏览器访问`localhost:3000`，打开【示例8】，等待约3-4秒后即可看到由摄像头拍摄到的画面。
 - 使用`jsmpeg.js`播放视频流画面（下图中最外侧鼠标为本地屏幕，其他均为使用ffmpeg捕获的桌面渲染结果，可以延迟很低）
-  - ![基于hls](https://github.com/dashnowords/imfe/blob/main/assets/ch20-jsmpeg.gif)
+  - ![基于hls](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66118b61971846998734aa5a6e6e5770~tplv-k3u1fbpfcp-watermark.image?)
   - 下载自己电脑系统支持的`ffmpeg`，并添加`ffmpeg`命令至全局环境变量`path`中
   - 打开命令行，进入`chapter20/jsmpeg_server`目录，先双击`start-ws-server.cmd`启动流媒体服务器
     - 双击`push-webcam.cmd`会使用`ffmpeg`推送本地摄像头采集的视频信号至`http://localhost:8081/live`
@@ -155,7 +155,7 @@
 ## Ch21 Commander.js “懒”是第一生产力
 > 进入目录后执行`npm run install`安装依赖
 
-![第21章inquirer](https://github.com/dashnowords/imfe/blob/main/assets/ch21-inquirer.png)
+![第21章inquirer](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8b73b5aa2d24ff69d81dcf4afd7f657~tplv-k3u1fbpfcp-watermark.image?)
 
 - `node inquirer-demo.js `展示了交互式风格的命令行工具
 - 打开终端，进入`cmds`文件夹，`node dash`展示了git风格的命令行工具，`node dash install`展示了子命令的使用
@@ -176,7 +176,7 @@
 ## Ch24 protobuf.js 二进制消息
 > 本章demo需要先使用`npm install`命令安装依赖后再使用
 
-![第24章protobufjs](https://github.com/dashnowords/imfe/blob/main/assets/ch24-abstract.png)
+![第24章protobufjs](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b4f7116dbd149d9bb513b58b6d09063~tplv-k3u1fbpfcp-watermark.image?)
 
 - `/proto`目录中存放示例用的*proto*定义文件。
 - `search.proto`，`product.proto`，`search-rpc.proto`为示例的定义
@@ -202,16 +202,14 @@
 ## Ch26 CreateJS 解构游戏开发
 > 进入目录后执行`npm run install`安装依赖，然后通过`npm run start`启动示例服务，在浏览器中通过`localhost:3000`访问
 
-![第26章createJS](https://github.com/dashnowords/imfe/blob/main/assets/ch26-abstract.png)
+![第26章createJS](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dee80efc12146f5ae8ddb1f36b018d6~tplv-k3u1fbpfcp-watermark.image?)
 
 本章包含相关工具库的API示例，以及分步实现的《飞龙大战》游戏教程。
 
 ## Ch27  matter.js 经典物理
-![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract1.gif)
+![第27章matterjs](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c8c1499006f4cac9c59a0d32b6907be~tplv-k3u1fbpfcp-watermark.image?)
 
-![第27章matterjs](https://github.com/dashnowords/imfe/blob/main/assets/ch27-abstract2.gif)
-
-
+![第27章matterjs](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/099df9fbf2f447f69060e3b5601b3e64~tplv-k3u1fbpfcp-watermark.image?)
 
 - `demo-matterjs`是`matterjs`官方提供的弹簧约束的Demo
 - `demo-angry-bird-matterjs`是愤怒的小鸟物理模型的Demo
@@ -225,7 +223,7 @@
 ## Ch28 Phaser 从工具到生态
 > 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
 
-![第28章phaser](https://github.com/dashnowords/imfe/blob/main/assets/ch28-abstract.png)
+<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d39c173114e4cf8b365588789b1f5ca~tplv-k3u1fbpfcp-watermark.image?" alt="第28章phaser" style="zoom:80%;" />
 
 示例包括：
 - 《生死忍者》游戏
@@ -237,7 +235,7 @@
 
 
 
-![第29章 brain.js](https://github.com/dashnowords/imfe/blob/main/assets/ch29-abstract.png)
+![第29章 brain.js](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5180be984fed4f2ebd4f737f228d2cc2~tplv-k3u1fbpfcp-watermark.image?)
 
 - `index.html`是`brain.js`基本示例
 - `xor-demo-[i].html`是**XOR分类问题**的单隐藏层模型，你可以修改其中的神经元节点数并反复刷新来查看训练后的分类器。
@@ -246,7 +244,7 @@
 ## Ch30  TensorFlow.js 开箱即用的深度学习工具
 > 进入目录后执行`npm run install`安装依赖，使用`npm run start`启动后在`localhost:3000`端口访问
 
-![第30章 tensorflow.js](https://github.com/dashnowords/imfe/blob/main/assets/ch30-abstract.png)
+![第30章 tensorflow.js](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d09b9649482c4e8bb25579318f622499~tplv-k3u1fbpfcp-watermark.image?)
 
 - `conv.html`-卷积层对图片处理效果可视化
 - `conv-pooling.html`-卷积层+最大池化层对图片处理效果可视化
@@ -258,7 +256,7 @@
 ## Ch31 Johnny-Five 从感知到控制
 > 进入目录后执行`npm run install`安装依赖。
 
-![第31章 tensorflow.js](https://github.com/dashnowords/imfe/blob/main/assets/ch31-abstract.png)
+![第31章 tensorflow.js](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb37f7948717480e83eab24c0a1cc0ca~tplv-k3u1fbpfcp-watermark.image?)
 
 - `/arduino_dht11`目录中存放了使用`fritizing`软件绘制的实验连线图
 - `/arduino_led`目录存放了三色LED灯实验的连线图，`Arduino`原生开发代码和实验小视频
