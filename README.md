@@ -1,6 +1,8 @@
 ## 《 前端跨界开发指南-JavaScript工具库原理解析与实战 》示例代码
 >:whale: 下载代码仓后需要先执行`npm install`安装依赖。
 
+<img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f115132f49104dbabbc024db08a04b95~tplv-k3u1fbpfcp-watermark.image?" alt="book_ui" width="300" />
+
 ### 附录
 
 - [写作那些事儿](https://github.com/dashnowords/imfe/blob/main/appendix/%E9%99%84%E5%BD%95A_%E5%86%99%E4%BD%9C%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
